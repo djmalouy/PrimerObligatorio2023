@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntidadesCompartidas", "EntidadesCompartidas\EntidadesCompartidas.csproj", "{E8E48307-7EFC-44D1-B3B4-1FE33141A6B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{4CD2198E-91DD-4227-B340-30A9AA046251}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logica", "Logica\Logica.csproj", "{DCEBC720-EA67-4862-A977-485382F9D0D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8E48307-7EFC-44D1-B3B4-1FE33141A6B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8E48307-7EFC-44D1-B3B4-1FE33141A6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8E48307-7EFC-44D1-B3B4-1FE33141A6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8E48307-7EFC-44D1-B3B4-1FE33141A6B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CD2198E-91DD-4227-B340-30A9AA046251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CD2198E-91DD-4227-B340-30A9AA046251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CD2198E-91DD-4227-B340-30A9AA046251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CD2198E-91DD-4227-B340-30A9AA046251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCEBC720-EA67-4862-A977-485382F9D0D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCEBC720-EA67-4862-A977-485382F9D0D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCEBC720-EA67-4862-A977-485382F9D0D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCEBC720-EA67-4862-A977-485382F9D0D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

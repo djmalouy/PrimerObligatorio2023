@@ -1,0 +1,5 @@
+C:\Users\59893\Desktop\Obligatorio Diseño\ObligatorioDisenio2023\Persistencia\bin\Debug\Persistencia.dll
+C:\Users\59893\Desktop\Obligatorio Diseño\ObligatorioDisenio2023\Persistencia\bin\Debug\Persistencia.pdb
+C:\Users\59893\Desktop\Obligatorio Diseño\ObligatorioDisenio2023\Persistencia\obj\Debug\Persistencia.csprojResolveAssemblyReference.cache
+C:\Users\59893\Desktop\Obligatorio Diseño\ObligatorioDisenio2023\Persistencia\obj\Debug\Persistencia.dll
+C:\Users\59893\Desktop\Obligatorio Diseño\ObligatorioDisenio2023\Persistencia\obj\Debug\Persistencia.pdb

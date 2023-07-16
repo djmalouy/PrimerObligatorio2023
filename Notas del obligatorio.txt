@@ -1,0 +1,73 @@
+PREGUNTAS:
+Empleado es una entidad ? 
+Viaje es entidad debil?
+Si un viaje nunca se puede eliminar entendemos que es tanto logica como fisica por tanto 
+no es necesario campo en base
+
+
+Una carpeta que se llame Diagrama y otra Base de datos
+Dentro de base de datos solo el script 
+Y adentro de la carpeta diagramas, la version en draw.io y en formato PDF cada uno de los diagramas
+
+Pagina de inicio se llama Default
+
+El 11 de mayo en la primera clase vimos como se hace eso en las grillas. Columna calculada
+
+Alta de viaje
+Compania y terminal de destino tengo que saberlas. El boton de alta de viaje no se habilita 
+hasta que seleecione una compania y una terminal de destino
+
+Drop de compania, pero poniendole "Seleccionar..." Caso 00. Es el unico listar que tiene un drop
+ y una grilla 28 de 03 segunda parte del a clase
+
+Recordar que esto es una logica especial porque hay algo de trasfondo. no son dos entidades completamente independientes. Y eso afecta al formulario. 
+
+Listado de los viajes del mes en formulario listado de viajes. Vamos a necesitar un listado de los viajes del mees actual.
+Vamos a tener que usar DATE PART
+
+10 usuarios minimo
+10 companias minimo
+40 terminales
+50 viajes que tengan fecha de partida fecha del obligatorio. ALgunos que salgan antes y otros depsues
+
+Clase 30 de marzo parte A como determino cuales conceptos llevan baja logica. En este caso hay un solo concepto que lo tiene
+
+
+1 OK Y CORREGIDO ) DER + RNE + Pasaje a tablas (pueden ser 3 partes la etapa)
+   FORMATO PDF 
+2) MC
+   Formato PDF
+3) Listado de SP
+      con parámetros
+      considerando baja lógica
+      considerando TRN lógica
+   Formato block de notas
+4) tablas en sql
+    con insert incluidos
+    mínimo 10 usuarios / 10 compañías / 40 terminales / 50 viajes a futuro
+                                                    fecha cerca de la entrega 
+5) SP codificados
+   pueden mandarse por etapas q es lo mejor 
+6) Diagrama de capas 
+   Planificación de persistencia sobre todo y como quedan las EC
+7) EC completas (código defensivo, constructores, atributos de asoc) 
+   se pueden pasar directo por el mail
+8) persistencia
+   SOLO COMPARTIDO POR DRIVE
+   se puede ir haciendo por etapas
+9) Lógica
+    SOLO COMPARTIDO POR DRIVE
+10) UI
+    SOLO reviso 
+          Alta viajes por lo complejo
+          Listado de viajes por linq y reúso de memoria
+
+
+
+Hora final
+Check de media hora de distancia si coincide anden
+
+
+
+
+
