@@ -20,32 +20,32 @@ namespace Persistencia
             return instancia;
         }
 
-        public Internacional BuscarTerminalInternacional(string pCodTerminal)
+        public Internacional BuscarI(string pCodTerminal)
         {
             return;
         }
 
-        public Internacional BuscarTerminalInternacionalActiva(string pCodTerminal)
+        public Internacional BuscarIActiva(string pCodTerminal)
         {
             return;
         }
 
-        public void AltaTerminalInternacional(Internacional pUnaTerminal)
+        public void AltaI(Internacional pUnaTerminal)
         {
 
         }
 
-        public void ModificarTerminalInternacional(Internacional pUnaTerminal)
+        public void ModificarI(Internacional pUnaTerminal)
         {
 
         }
 
-        public void BajaTerminalInternacional(Internacional pUnaTerminal)
+        public void BajaI(Internacional pUnaTerminal)
         {
 
         }
 
-        public List<Internacional> ListarTerminalesInternacionales()
+        public List<Internacional> ListarInternacionales()
         {
             return;
         }

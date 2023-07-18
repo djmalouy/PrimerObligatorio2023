@@ -9,22 +9,22 @@ namespace Persistencia
 {
     public interface IPersistenciaNacional
     {
-        Nacional BuscarTerminalNacional(string pCodTerminal);
+        Nacional BuscarN(string pCodTerminal);
 
 
-       Nacional BuscarTerminalNacionalActiva(string pCodTerminal);
+       Nacional BuscarNActiva(string pCodTerminal);
 
 
-        void AltaTerminalNacional(Nacional pUnaTerminal);
+        void AltaN(Nacional pUnaTerminal);
 
 
-        void ModificarTerminalNacional(Nacional pUnaTerminal);
+        void ModificarN(Nacional pUnaTerminal);
 
 
-        void BajaTerminalNacional(Nacional pUnaTerminal);
+        void BajaN(Nacional pUnaTerminal);
 
 
-        List<Nacional> ListarTerminalesNacional();
+        List<Nacional> ListarNacionales();
 
     }
 }

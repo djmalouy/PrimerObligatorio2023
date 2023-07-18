@@ -13,6 +13,6 @@ namespace Persistencia
     {
         void AgregarParada(Parada unaParada, int pCodViaje, SqlTransaction _pTransaccion);
 
-        List<Parada> ListarRecorridoDeUnViaje(Viaje unViaje);
+        List<Parada> ListarRecorrido(Viaje unViaje);
     }
 }

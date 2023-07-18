@@ -25,7 +25,7 @@ namespace Persistencia
 
         }
 
-        public List<Parada> ListarRecorridoDeUnViaje(Viaje unViaje)
+        public List<Parada> ListarRecorrido(Viaje unViaje)
         {
             return;
         }

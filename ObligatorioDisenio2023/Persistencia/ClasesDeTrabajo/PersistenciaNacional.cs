@@ -20,32 +20,32 @@ namespace Persistencia
             return instancia;
         }
 
-        public Nacional BuscarTerminalNacional(string pCodTerminal)
+        public Nacional BuscarN(string pCodTerminal)
         {
             return;
         }
 
-        public Nacional BuscarTerminalNacionalActiva(string pCodTerminal)
+        public Nacional BuscarNActiva(string pCodTerminal)
         {
             return;
         }
 
-        public void AltaTerminalNacional(Nacional pUnaTerminal)
+        public void AltaN(Nacional pUnaTerminal)
         {
 
         }
 
-        public void ModificarTerminalNacional(Nacional pUnaTerminal)
+        public void ModificarN(Nacional pUnaTerminal)
         {
 
         }
 
-        public void BajaTerminalNacional(Nacional pUnaTerminal)
+        public void BajaN(Nacional pUnaTerminal)
         {
 
         }
 
-        public List<Nacional> ListarTerminalesNacional()
+        public List<Nacional> ListarNacionales()
         {
             return;
         }

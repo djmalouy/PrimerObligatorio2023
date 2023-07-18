@@ -9,16 +9,16 @@ namespace Persistencia
 {
     public interface IPersistenciaInternacional
     {
-        Internacional BuscarTerminalInternacional(string pCodTerminal);
+        Internacional BuscarI(string pCodTerminal);
 
-        Internacional BuscarTerminalInternacionalActiva(string pCodTerminal);
+        Internacional BuscarIActiva(string pCodTerminal);
 
-        void AltaTerminalInternacional(Internacional pUnaTerminal);
+        void AltaI(Internacional pUnaTerminal);
 
-        void ModificarTerminalInternacional(Internacional pUnaTerminal);
+        void ModificarI(Internacional pUnaTerminal);
 
-        void BajaTerminalInternacional(Internacional pUnaTerminal);
+        void BajaI(Internacional pUnaTerminal);
 
-        List<Internacional> ListarTerminalesInternacionales();
+        List<Internacional> ListarInternacionales();
     }
 }
