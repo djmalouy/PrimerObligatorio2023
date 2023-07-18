@@ -10,7 +10,7 @@ using EntidadesCompartidas;
 
 namespace Persistencia
 {
-    public class PersistenciaEmpleado: IPersistenciaEmpleado
+    internal class PersistenciaEmpleado: IPersistenciaEmpleado
     {
         private static PersistenciaEmpleado instancia = null;
         private PersistenciaEmpleado() { }

@@ -8,32 +8,32 @@ namespace Persistencia
 {
     public class FabricaPersistencia
     {
-        public static IPersistenciaCompania GetPersitenciaCompania()
+        public static IPersistenciaCompania GetPersistenciaCompania()
         {
             return (PersistenciaCompania.GetInstancia());
         }
 
-        public static IPersistenciaEmpleado GetPersitenciaEmpleado()
+        public static IPersistenciaEmpleado GetPersistenciaEmpleado()
         {
             return (PersistenciaEmpleado.GetInstancia());
         }
 
-        public static IPersistenciaInternacional GetPersitenciaInternacional()
+        public static IPersistenciaInternacional GetPersistenciaInternacional()
         {
             return (PersistenciaInternacional.GetInstancia());
         }
 
-        public static IPersistenciaNacional GetPersitenciaNacional()
+        public static IPersistenciaNacional GetPersistenciaNacional()
         {
             return (PersistenciaNacional.GetInstancia());
         }
 
-        public static IPersistenciaParada GetPersitenciaParada()
+        public static IPersistenciaParada GetPersistenciaParada()
         {
             return (PersistenciaParada.GetInstancia());
         }
 
-        public static IPersistenciaViaje GetPersitenciaViaje()
+        public static IPersistenciaViaje GetPersistenciaViaje()
         {
             return (PersistenciaViaje.GetInstancia());
         }

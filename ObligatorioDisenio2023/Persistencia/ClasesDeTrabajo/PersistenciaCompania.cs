@@ -9,7 +9,7 @@ using EntidadesCompartidas;
 
 namespace Persistencia
 {
-    public class PersistenciaCompania: IPersistenciaCompania
+    internal class PersistenciaCompania: IPersistenciaCompania
     {
         private static PersistenciaCompania instancia = null;
         private PersistenciaCompania() { }
