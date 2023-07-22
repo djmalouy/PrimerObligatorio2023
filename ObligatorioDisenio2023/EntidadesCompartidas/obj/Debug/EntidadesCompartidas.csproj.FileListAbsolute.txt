@@ -8,3 +8,7 @@ C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio
 C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\obj\Debug\EntidadesCompartidas.csprojResolveAssemblyReference.cache
 C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\obj\Debug\EntidadesCompartidas.dll
 C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\obj\Debug\EntidadesCompartidas.pdb
+C:\Users\59893\Desktop\Diseño I\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\bin\Debug\EntidadesCompartidas.dll
+C:\Users\59893\Desktop\Diseño I\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\bin\Debug\EntidadesCompartidas.pdb
+C:\Users\59893\Desktop\Diseño I\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\obj\Debug\EntidadesCompartidas.dll
+C:\Users\59893\Desktop\Diseño I\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\obj\Debug\EntidadesCompartidas.pdb

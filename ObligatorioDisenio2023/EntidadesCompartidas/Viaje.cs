@@ -27,12 +27,7 @@ namespace EntidadesCompartidas
         public DateTime FechaYHoraPartida
         {
             get{return _FechaYHoraPartida;}
-            set{
-                if (value != null)
-                    _FechaYHoraPartida = value;
-                else
-                    throw new Exception("La Fecha y Hora de Partida no puede ser nula.");
-            }
+            set{ _FechaYHoraPartida = value;}
         }
 
         public DateTime FechaYHoraArribo
@@ -40,10 +35,10 @@ namespace EntidadesCompartidas
             get{return _FechaYHoraArribo;}
 
             set{
-                if(value != null)
+                if (_FechaYHoraArribo > _FechaYHoraPartida)
                     _FechaYHoraArribo = value;
                 else
-                    throw new Exception("La Fecha y Hora de Arribo no puede ser nula.");
+                    throw new Exception("La hora de arribo no puede ser menor o igual que la hora de partida.");
             }
         }
 
@@ -106,8 +101,10 @@ namespace EntidadesCompartidas
         {
             get{return _Paradas;}
             set{
-                if (value.Count > 0)
-                    _Paradas = value;
+                if (value != null) { 
+                    if (value.Count > 0)
+                        _Paradas = value;
+                }
                 else
                     throw new Exception("No puede haber un viaje sin paradas en su recorrido.");
             }

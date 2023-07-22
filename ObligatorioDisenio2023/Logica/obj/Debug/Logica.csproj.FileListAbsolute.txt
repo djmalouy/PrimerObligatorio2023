@@ -1,1 +1,2 @@
 C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\obj\Debug\Logica.csprojResolveAssemblyReference.cache
+C:\Users\59893\Desktop\Diseño I\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\obj\Debug\Logica.csprojResolveAssemblyReference.cache

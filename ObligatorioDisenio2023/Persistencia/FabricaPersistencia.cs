@@ -28,11 +28,6 @@ namespace Persistencia
             return (PersistenciaNacional.GetInstancia());
         }
 
-        public static IPersistenciaParada GetPersistenciaParada()
-        {
-            return (PersistenciaParada.GetInstancia());
-        }
-
         public static IPersistenciaViaje GetPersistenciaViaje()
         {
             return (PersistenciaViaje.GetInstancia());

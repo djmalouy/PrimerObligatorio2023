@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Text.RegularExpressions;
 
 namespace EntidadesCompartidas
 {
@@ -34,9 +33,9 @@ namespace EntidadesCompartidas
                     int letra = 0;
                     foreach (char ch in value)
                     {
-                        if (Regex.IsMatch(ch.ToString(), "[a-zA-Z]"))
+                        if (char.IsLetter(ch))
                             letra++;
-                        else if (Regex.IsMatch(ch.ToString(), "[0-9]"))
+                        else if (char.IsNumber(ch))
                             numero++;
                     }
                     if (numero == 3 && letra == 3)

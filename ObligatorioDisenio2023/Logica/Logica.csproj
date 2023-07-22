@@ -43,13 +43,11 @@
     <Compile Include="ClasesDeTrabajo\LogicaCompania.cs" />
     <Compile Include="ClasesDeTrabajo\LogicaEmpleado.cs" />
     <Compile Include="ClasesDeTrabajo\LogicaTerminal.cs" />
-    <Compile Include="ClasesDeTrabajo\LogicaParada.cs" />
     <Compile Include="ClasesDeTrabajo\LogicaViaje.cs" />
     <Compile Include="FabricaLogica.cs" />
     <Compile Include="Interfaces\ILogicaCompania.cs" />
     <Compile Include="Interfaces\ILogicaEmpleado.cs" />
     <Compile Include="Interfaces\ILogicaTerminal.cs" />
-    <Compile Include="Interfaces\ILogicaParada.cs" />
     <Compile Include="Interfaces\ILogicaViaje.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

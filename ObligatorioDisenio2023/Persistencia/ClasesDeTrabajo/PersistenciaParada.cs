@@ -9,17 +9,8 @@ using EntidadesCompartidas;
 
 namespace Persistencia
 {
-    internal class PersistenciaParada: IPersistenciaParada
+    internal class PersistenciaParada
     {
-        private static PersistenciaParada instancia = null;
-        private PersistenciaParada() { }
-        public static PersistenciaParada GetInstancia()
-        {
-            if (instancia == null)
-                instancia = new PersistenciaParada();
-            return instancia;
-        }
-
         public void AgregarParada(Parada unaParada, int pCodViaje,SqlTransaction _pTransaccion)
         {
 
@@ -27,7 +18,8 @@ namespace Persistencia
 
         public List<Parada> ListarRecorrido(Viaje unViaje)
         {
-            return;
+            List<Parada> listado = new List<Parada>();
+            return listado;
         }
     }
 }
