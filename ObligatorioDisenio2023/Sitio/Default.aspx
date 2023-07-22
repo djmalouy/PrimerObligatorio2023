@@ -17,7 +17,8 @@
         }
         .auto-style3 {
             width: 264px;
-        }
+            height: 111px;
+            }
         .auto-style5 {
             width: 533px;
             height: 94px;
@@ -44,7 +45,7 @@
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;&nbsp;&nbsp;
-                    <asp:GridView ID="GVListadoViajes" runat="server" AllowPaging="True">
+                    <asp:GridView ID="GVListadoViajes" runat="server" AllowPaging="True" Align="center">
                     </asp:GridView>
                 </td>
             </tr>

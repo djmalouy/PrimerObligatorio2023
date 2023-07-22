@@ -14,22 +14,17 @@
         }
         .auto-style7 {
             height: 23px;
-            width: 742px;
+            width: 582px;
             text-align: right;
         }
         .auto-style8 {
-            width: 742px;
+            width: 582px;
             text-align: right;
             height: 26px;
         }
-        .auto-style10 {
-            text-align: left;
-            height: 22px;
-        }
         .auto-style11 {
             height: 22px;
-            width: 742px;
-            text-align: right;
+            text-align: center;
         }
         .auto-style12 {
             height: 25px;
@@ -74,11 +69,10 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style11">
-                <asp:ImageButton ID="btnAlta" runat="server" Height="30px" ImageUrl="~/Images/Alta.png" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </td>
-            <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="btnLimpiar" runat="server" Height="30px" ImageUrl="~/Images/Limpiar.png" />
+            <td class="auto-style11" colspan="2">
+                &nbsp;<asp:ImageButton ID="btnLimpiar" runat="server" Height="50px" ImageUrl="~/Images/Limpiar.png" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:ImageButton ID="btnAlta" runat="server" Height="50px" ImageUrl="~/Images/Alta.png" />
             </td>
         </tr>
     </table>
