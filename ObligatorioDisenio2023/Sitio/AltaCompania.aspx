@@ -10,37 +10,42 @@
         }
         .auto-style4 {
             height: 23px;
-            width: 670px;
+            width: 594px;
             text-align: right;
         }
         .auto-style6 {
-            width: 670px;
+            width: 594px;
             text-align: right;
         }
         .auto-style7 {
             color: #FF0000;
+        }
+        .auto-style8 {
+            text-align: center;
         }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="auto-style2">
         <tr>
-            <td colspan="2">&nbsp;</td>
+            <td colspan="2" class="auto-style8">
+                <asp:Image ID="Image1" runat="server" Height="60px" ImageUrl="~/Images/AltaCompania.png" />
+            </td>
         </tr>
         <tr>
-            <td class="auto-style4">Nombre:</td>
+            <td class="auto-style4"><strong>Nombre:</strong></td>
             <td class="auto-style3">
                 <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style6">Dirección:</td>
+            <td class="auto-style6"><strong>Dirección:</strong></td>
             <td>
                 <asp:TextBox ID="txtDireccion" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style6">Teléfono:</td>
+            <td class="auto-style6"><strong>Teléfono:</strong></td>
             <td>
                 <asp:TextBox ID="txtTelefono" runat="server"></asp:TextBox>
             </td>
@@ -51,11 +56,10 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style6">
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="41px" ImageUrl="~/Images/Alta.png" Width="81px" />
-            </td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" ImageUrl="~/Images/Limpiar.png" />
+            <td class="auto-style8" colspan="2">
+                <asp:ImageButton ID="btnAlta" runat="server" Height="40px" ImageUrl="~/Images/Alta.png" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" />
             </td>
         </tr>
     </table>

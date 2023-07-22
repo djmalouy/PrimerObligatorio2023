@@ -33,13 +33,12 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="auto-style2">
         <tr>
-            <td class="auto-style3" colspan="3">
-                <asp:Image ID="Image1" runat="server" Height="45px" Width="267px" />
+            <td class="auto-style3" colspan="4">
+                <asp:Image ID="Image1" runat="server" Height="60px" ImageUrl="~/Images/AltaViajes.png" />
             </td>
-            <td class="auto-style3">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style6">Fecha y Hora de Partida: </td>
+            <td class="auto-style6"><strong>Fecha y Hora de Partida:</strong> </td>
             <td class="auto-style4">
                 <asp:TextBox ID="txtFechaPartida" runat="server" TextMode="DateTime"></asp:TextBox>
             </td>
@@ -47,7 +46,7 @@
             <td class="auto-style4">&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style8">Fecha y Hora de Arribo:</td>
+            <td class="auto-style8"><strong>Fecha y Hora de Arribo:</strong></td>
             <td class="auto-style5">
                 <asp:TextBox ID="txtFechaArribo" runat="server" TextMode="DateTime"></asp:TextBox>
             </td>
@@ -55,7 +54,7 @@
             <td class="auto-style5"></td>
         </tr>
         <tr>
-            <td class="auto-style7">Precio: </td>
+            <td class="auto-style7"><strong>Precio: </strong> </td>
             <td>
                 <asp:TextBox ID="txtPrecio" runat="server" TextMode="Number"></asp:TextBox>
             </td>
@@ -63,7 +62,7 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style8">Anden: </td>
+            <td class="auto-style8"><strong>Anden: </strong> </td>
             <td class="auto-style5">
                 <asp:DropDownList ID="ddlAnden" runat="server">
                     <asp:ListItem>1</asp:ListItem>
@@ -107,7 +106,7 @@
             <td class="auto-style5"></td>
         </tr>
         <tr>
-            <td class="auto-style7">Máximo permitido:</td>
+            <td class="auto-style7"><strong>Máximo permitido:</strong></td>
             <td>
                 <asp:TextBox ID="txtMaximo" runat="server" TextMode="Number"></asp:TextBox>
             </td>
@@ -115,7 +114,7 @@
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style7">Compañía: </td>
+            <td class="auto-style7"><strong>Compañía: </strong> </td>
             <td>
                 <asp:DropDownList ID="ddlCompania" runat="server">
                 </asp:DropDownList>
@@ -129,11 +128,11 @@
                 <asp:DropDownList ID="ddlTerminal" runat="server">
                 </asp:DropDownList>
 &nbsp;&nbsp;
-                <asp:ImageButton ID="btnAgregarParada" runat="server" Height="37px" Width="166px" />
+                <asp:ImageButton ID="btnAgregarParada" runat="server" Height="40px" ImageUrl="~/Images/AgregarParada.png" />
             </td>
             <td colspan="2" rowspan="2">
                 <asp:ListBox ID="lbParadas" runat="server" Height="117px" Width="310px"></asp:ListBox>
-                <asp:ImageButton ID="btnQuitarParada" runat="server" Height="33px" Width="156px" />
+                <asp:ImageButton ID="btnQuitarParada" runat="server" Height="40px" ImageUrl="~/Images/QuitarParada.png" />
             </td>
         </tr>
         <tr>

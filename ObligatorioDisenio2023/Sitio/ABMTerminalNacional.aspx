@@ -7,14 +7,7 @@
         }
         .auto-style3 {
             text-align: right;
-            width: 634px;
-        }
-        .auto-style4 {
-            width: 12px;
-        }
-        .auto-style5 {
-            width: 12px;
-            text-align: center;
+            width: 550px;
         }
         .auto-style6 {
             text-align: center;
@@ -22,34 +15,38 @@
         .auto-style7 {
             color: #FF0000;
         }
+        .auto-style8 {
+            width: 211px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="auto-style2">
         <tr>
-            <td colspan="2">&nbsp;</td>
-            <td>&nbsp;</td>
+            <td colspan="3" class="auto-style6">
+                <asp:Image ID="Image1" runat="server" Height="60px" ImageUrl="~/Images/ABMTerminalNacional.png" />
+            </td>
         </tr>
         <tr>
-            <td class="auto-style3">Código de Terminal:</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <td class="auto-style3"><strong>Código de Terminal:&nbsp;&nbsp;&nbsp; </strong></td>
+            <td class="auto-style8">
+                <asp:TextBox ID="txtCodTerminal" runat="server" Width="195px"></asp:TextBox>
             </td>
             <td>
-                <asp:ImageButton ID="ImageButton1" runat="server" Height="35px" Width="125px" />
+                <asp:ImageButton ID="btnBuscar" runat="server" Height="40px" Width="125px" ImageUrl="~/Images/Buscar.png" />
             </td>
         </tr>
         <tr>
-            <td class="auto-style3">Ciudad:</td>
-            <td class="auto-style4">
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+            <td class="auto-style3"><strong>Ciudad:&nbsp;&nbsp;&nbsp; </strong></td>
+            <td class="auto-style8">
+                <asp:TextBox ID="txtCiudad" runat="server" Width="193px"></asp:TextBox>
             </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style3">Dispone de servicio de Taxi?</td>
-            <td class="auto-style4">
-                <asp:DropDownList ID="DropDownList1" runat="server">
+            <td class="auto-style3"><strong>Dispone de servicio de Taxi?&nbsp;&nbsp;&nbsp; </strong></td>
+            <td class="auto-style8">
+                <asp:DropDownList ID="ddlTaxi" runat="server">
                     <asp:ListItem>SI</asp:ListItem>
                     <asp:ListItem>NO</asp:ListItem>
                 </asp:DropDownList>
@@ -62,14 +59,14 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style3">
-                <asp:ImageButton ID="ImageButton2" runat="server" Height="50px" ImageUrl="~/Images/Alta.png" />
-            </td>
-            <td class="auto-style5">
-                <asp:ImageButton ID="ImageButton3" runat="server" Height="36px" Width="126px" />
-            </td>
-            <td>
-                <asp:ImageButton ID="ImageButton4" runat="server" Height="34px" Width="124px" />
+            <td class="auto-style6" colspan="3">
+                <asp:ImageButton ID="btnAlta" runat="server" Height="40px" ImageUrl="~/Images/Alta.png" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:ImageButton ID="btnModificar" runat="server" Height="40px" Width="126px" ImageUrl="~/Images/Modificar.png" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:ImageButton ID="btnEliminar" runat="server" Height="40px" Width="124px" ImageUrl="~/Images/Eliminar.png" />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" />
             </td>
         </tr>
     </table>

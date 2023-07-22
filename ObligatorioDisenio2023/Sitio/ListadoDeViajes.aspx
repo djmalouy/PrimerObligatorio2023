@@ -17,7 +17,7 @@
     <table class="auto-style2">
         <tr>
             <td class="auto-style3">
-                <asp:Image ID="Image1" runat="server" Height="60px" Width="289px" ImageUrl="~/Images/ListadoDeViajes.png" />
+                <asp:Image ID="Image1" runat="server" Height="60px" ImageUrl="~/Images/ListadoDeViajes.png" />
             </td>
         </tr>
         <tr>
@@ -26,19 +26,19 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Compañía:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Compañía:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:DropDownList ID="ddlCompania" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Destino final:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Destino final:&nbsp;</strong>&nbsp;&nbsp;&nbsp; &nbsp;
                 <asp:DropDownList ID="ddlDestinoFinal" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fecha:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong> Fecha:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="txtFecha" runat="server" TextMode="Date"></asp:TextBox>
             </td>
         </tr>
