@@ -35,8 +35,8 @@ namespace EntidadesCompartidas
 
         public Parada(int pNroParada, Terminal pTerminal)
         {
-            _NroParada = pNroParada;
-            _TerminalParada = pTerminal;
+            NroParada = pNroParada;
+            TerminalParada = pTerminal;
         }
     }
 }
