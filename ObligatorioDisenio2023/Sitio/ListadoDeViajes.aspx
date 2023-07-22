@@ -8,60 +8,50 @@
         .auto-style3 {
             text-align: center;
         }
-        .auto-style5 {
-            width: 1260px;
-        }
         .auto-style6 {
             color: #FF0000;
         }
-        .auto-style7 {
-            width: 1534px;
-            text-align: right;
-        }
-    </style>
+        </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <table class="auto-style2">
         <tr>
-            <td class="auto-style3" colspan="2">
-                <asp:Image ID="Image1" runat="server" Height="50px" Width="289px" />
+            <td class="auto-style3">
+                <asp:Image ID="Image1" runat="server" Height="60px" Width="289px" ImageUrl="~/Images/ListadoDeViajes.png" />
             </td>
         </tr>
         <tr>
-            <td class="auto-style3" colspan="2">
-                <asp:Image ID="Image2" runat="server" Height="33px" Width="173px" />
+            <td class="auto-style3">
+                <asp:Image ID="Image2" runat="server" Height="40px" ImageUrl="~/Images/Filtros.png" />
             </td>
         </tr>
         <tr>
-            <td class="auto-style7">Compañía:</td>
-            <td class="auto-style5">
+            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Compañía:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:DropDownList ID="ddlCompania" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td class="auto-style7">Destino final:&nbsp; </td>
-            <td class="auto-style5">
+            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Destino final:&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                 <asp:DropDownList ID="ddlDestinoFinal" runat="server">
                 </asp:DropDownList>
             </td>
         </tr>
         <tr>
-            <td class="auto-style7">Fecha: </td>
-            <td class="auto-style5">
+            <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Fecha:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:TextBox ID="txtFecha" runat="server" TextMode="Date"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style3" colspan="2">
+            <td class="auto-style3">
                 <asp:Label ID="lblError" runat="server" CssClass="auto-style6"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td class="auto-style3" colspan="2">
-                <asp:ImageButton ID="ImageButton1" runat="server" />
+            <td class="auto-style3">
+                <asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" />
 &nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="ImageButton2" runat="server" />
+                <asp:ImageButton ID="btnFiltrar" runat="server" Height="40px" ImageUrl="~/Images/Filtrar.png" />
             </td>
         </tr>
     </table>
@@ -69,7 +59,7 @@
     <table class="auto-style2">
         <tr>
             <td>
-                <asp:GridView ID="GridView1" runat="server" Width="239px" Align="center" AllowPaging="True">
+                <asp:GridView ID="GVListadoViajes" runat="server" Width="239px" Align="center" AllowPaging="True">
                 </asp:GridView>
             </td>
         </tr>

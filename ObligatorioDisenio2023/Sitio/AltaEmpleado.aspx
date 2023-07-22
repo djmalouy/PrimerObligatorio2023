@@ -42,23 +42,23 @@
     <table class="auto-style2">
         <tr>
             <td class="auto-style3" colspan="2">
-                <asp:Image ID="Image1" runat="server" Height="40px" ImageUrl="~/Images/AltaEmpleado.png" />
+                <asp:Image ID="Image1" runat="server" Height="60px" ImageUrl="~/Images/AltaEmpleado.png" />
             </td>
         </tr>
         <tr>
-            <td class="auto-style7">Nombre de Usuario:&nbsp;&nbsp;&nbsp; </td>
+            <td class="auto-style7"><strong>Nombre de Usuario:&nbsp;&nbsp;&nbsp; </strong> </td>
             <td class="auto-style4">
                 <asp:TextBox ID="txtNombUsuario" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style8">Contraseña:&nbsp;&nbsp;&nbsp; </td>
+            <td class="auto-style8"><strong>Contraseña:&nbsp;&nbsp;&nbsp; </strong> </td>
             <td class="auto-style13">
                 <asp:TextBox ID="txtContrasenia" runat="server"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td class="auto-style7">Nombre Completo:&nbsp;&nbsp;&nbsp; </td>
+            <td class="auto-style7"><strong>Nombre Completo:&nbsp;&nbsp;&nbsp; </strong> </td>
             <td class="auto-style4">
                 <asp:TextBox ID="txtNombCompleto" runat="server"></asp:TextBox>
             </td>
@@ -70,9 +70,9 @@
         </tr>
         <tr>
             <td class="auto-style11" colspan="2">
-                &nbsp;<asp:ImageButton ID="btnLimpiar" runat="server" Height="50px" ImageUrl="~/Images/Limpiar.png" />
+                &nbsp;<asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="btnAlta" runat="server" Height="50px" ImageUrl="~/Images/Alta.png" />
+                <asp:ImageButton ID="btnAlta" runat="server" Height="40px" ImageUrl="~/Images/Alta.png" />
             </td>
         </tr>
     </table>
