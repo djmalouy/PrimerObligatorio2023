@@ -11,7 +11,7 @@ namespace Persistencia
 {
     internal class PersistenciaParada
     {
-        public void AgregarParada(Parada unaParada, int pCodViaje,SqlTransaction _pTransaccion)
+        public void AgregarParada(Parada unaParada, int pCodViaje, SqlTransaction _pTransaccion)
         {
 
         }
