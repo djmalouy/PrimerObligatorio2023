@@ -9,8 +9,6 @@ namespace Persistencia
 {
     public interface IPersistenciaInternacional
     {
-        Internacional BuscarI(string pCodTerminal);
-
         Internacional BuscarIActiva(string pCodTerminal);
 
         void AltaI(Internacional pUnaTerminal);

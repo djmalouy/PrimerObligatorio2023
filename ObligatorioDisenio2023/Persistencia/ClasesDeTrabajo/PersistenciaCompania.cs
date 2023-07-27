@@ -34,7 +34,6 @@ namespace Persistencia
             //@Nombre varchar(30)
 
             cmd.Parameters.AddWithValue("@CodigoInterno", pNombre);
-
             try
             {
                 con.Open();
@@ -61,24 +60,24 @@ namespace Persistencia
         }
         public void AltaCompania (Compania unaC)
         {
-            SqlConnection _cnn = new SqlConnection(Conexion.Cnn);
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
 
-            SqlCommand _comando = new SqlCommand("AltaCompania", _cnn);
-            _comando.CommandType = System.Data.CommandType.StoredProcedure;
-            _comando.Parameters.AddWithValue("@Nombre", unaC.Nombre);
-            _comando.Parameters.AddWithValue("@Direccion", unaC.Direccion);
-            _comando.Parameters.AddWithValue("@Telefono", unaC.Telefono);
-            SqlParameter _retorno = new SqlParameter("@Retorno", System.Data.SqlDbType.Int);
-            _retorno.Direction = System.Data.ParameterDirection.ReturnValue;
-            _comando.Parameters.Add(_retorno);
+            SqlCommand cmd = new SqlCommand("AltaCompania", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Nombre", unaC.Nombre);
+            cmd.Parameters.AddWithValue("@Direccion", unaC.Direccion);
+            cmd.Parameters.AddWithValue("@Telefono", unaC.Telefono);
+            SqlParameter retorno = new SqlParameter("@Retorno", SqlDbType.Int);
+            retorno.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add(retorno);
 
             try
             {
-                _cnn.Open();
-                _comando.ExecuteNonQuery();
-                if ((int)_retorno.Value == -1)
+                cnn.Open();
+                cmd.ExecuteNonQuery();
+                if ((int)retorno.Value == -1)
                     throw new Exception("Ya existe una Compañia con dicho nombre.");
-                else if ((int)_retorno.Value == -2)
+                else if ((int)retorno.Value == -2)
                     throw new Exception("Error en Alta Compañia");
             }
             catch (Exception ex)
@@ -87,32 +86,32 @@ namespace Persistencia
             }
             finally
             {
-                _cnn.Close();
+                cnn.Close();
             }
 
         }
         public List<Compania> ListarCompanias()
         {
-            SqlConnection _cnn = new SqlConnection(Conexion.Cnn);
-            List<Compania> _lista = new List<Compania>();
-            Compania _unaCompania = null;
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
+            List<Compania> lista = new List<Compania>();
+            Compania unaC = null;
 
-            SqlCommand _comando = new SqlCommand("ListarCompanias", _cnn);
-            _comando.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand("ListarCompanias", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
 
             try
             {
-                _cnn.Open();
-                SqlDataReader _lector = _comando.ExecuteReader();
-                if (_lector.HasRows)
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    while (_lector.Read())
+                    while (reader.Read())
                     {
-                        _unaCompania = new Compania((string)_lector["Nombre"], (string)_lector["Direccion"], (string)_lector["Telefono"]);
-                        _lista.Add(_unaCompania);
+                        unaC = new Compania((string)reader["Nombre"], (string)reader["Direccion"], (string)reader["Telefono"]);
+                        lista.Add(unaC);
                     }
                 }
-                _lector.Close();
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -120,9 +119,9 @@ namespace Persistencia
             }
             finally
             {
-                _cnn.Close();
+                cnn.Close();
             }
-            return _lista;
+            return lista;
         }
     }
 }

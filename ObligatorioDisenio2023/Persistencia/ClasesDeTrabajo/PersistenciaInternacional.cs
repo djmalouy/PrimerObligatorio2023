@@ -22,21 +22,21 @@ namespace Persistencia
 
         internal Internacional BuscarI(string pCodTerminal)
         {
-            SqlConnection _cnn = new SqlConnection(Conexion.Cnn);
-            Internacional _unaInter = null;
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
+            Internacional unaI = null;
 
-            SqlCommand _comando = new SqlCommand("BuscarTerminalInternacional", _cnn);
-            _comando.CommandType = System.Data.CommandType.StoredProcedure;
-            _comando.Parameters.AddWithValue("@CodTerminal", pCodTerminal);
+            SqlCommand cmd = new SqlCommand("BuscarTerminalInternacional", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CodTerminal", pCodTerminal);
 
             try
             {
-                _cnn.Open();
-                SqlDataReader _lector = _comando.ExecuteReader();
-                if (_lector.HasRows)
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    _lector.Read();
-                    _unaInter = new Internacional(pCodTerminal, (string)_lector["Ciudad"], (string)_lector["Pais"]);
+                    reader.Read();
+                    unaI = new Internacional(pCodTerminal, (string)reader["Ciudad"], (string)reader["Pais"]);
                 }
             }
             catch (Exception ex)
@@ -45,28 +45,28 @@ namespace Persistencia
             }
             finally
             {
-                _cnn.Close();
+                cnn.Close();
             }
-            return _unaInter;
+            return unaI;
         }
 
         public Internacional BuscarIActiva(string pCodTerminal)
         {
-            SqlConnection _cnn = new SqlConnection(Conexion.Cnn);
-            Internacional _unaInter = null;
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
+            Internacional unaI = null;
 
-            SqlCommand _comando = new SqlCommand("BuscarTerminalInternacionalActiva", _cnn);
-            _comando.CommandType = System.Data.CommandType.StoredProcedure;
-            _comando.Parameters.AddWithValue("@CodTerminal", pCodTerminal);
+            SqlCommand cmd = new SqlCommand("BuscarTerminalInternacionalActiva", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CodTerminal", pCodTerminal);
 
             try
             {
-                _cnn.Open();
-                SqlDataReader _lector = _comando.ExecuteReader();
-                if (_lector.HasRows)
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    _lector.Read();
-                    _unaInter = new Internacional(pCodTerminal, (string)_lector["Ciudad"], (string)_lector["Pais"]);
+                    reader.Read();
+                    unaI = new Internacional(pCodTerminal, (string)reader["Ciudad"], (string)reader["Pais"]);
                 }
             }
             catch (Exception ex)
@@ -75,31 +75,31 @@ namespace Persistencia
             }
             finally
             {
-                _cnn.Close();
+                cnn.Close();
             }
-            return _unaInter;
+            return unaI;
         }
 
         public void AltaI(Internacional pUnaTerminal)
         {
-            SqlConnection _cnn = new SqlConnection(Conexion.Cnn);
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
 
-            SqlCommand _comando = new SqlCommand("AltaTerminalInternacional", _cnn);
-            _comando.CommandType = System.Data.CommandType.StoredProcedure;
-            _comando.Parameters.AddWithValue("@CodTerminal", pUnaTerminal.CodTerminal);
-            _comando.Parameters.AddWithValue("@Ciudad", pUnaTerminal.Ciudad);
-            _comando.Parameters.AddWithValue("@Pais", pUnaTerminal.Pais);
-            SqlParameter _retorno = new SqlParameter("@Retorno", System.Data.SqlDbType.Int);
-            _retorno.Direction = System.Data.ParameterDirection.ReturnValue;
-            _comando.Parameters.Add(_retorno);
+            SqlCommand cmd = new SqlCommand("AltaTerminalInternacional", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CodTerminal", pUnaTerminal.CodTerminal);
+            cmd.Parameters.AddWithValue("@Ciudad", pUnaTerminal.Ciudad);
+            cmd.Parameters.AddWithValue("@Pais", pUnaTerminal.Pais);
+            SqlParameter retorno = new SqlParameter("@Retorno", SqlDbType.Int);
+            retorno.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add(retorno);
 
             try
             {
-                _cnn.Open();
-                _comando.ExecuteNonQuery();
-                if ((int)_retorno.Value == -1)
+                cnn.Open();
+                cmd.ExecuteNonQuery();
+                if ((int)retorno.Value == -1)
                     throw new Exception("YA EXISTE UNA TERMINAL CON DICHO CÓDIGO - No se crea.");
-                else if ((int)_retorno.Value == -2)
+                else if ((int)retorno.Value == -2)
                     throw new Exception("NO SE PUDO CREAR LA TERMINAL.");
             }
             catch (Exception ex)
@@ -108,23 +108,106 @@ namespace Persistencia
             }
             finally
             {
-                _cnn.Close();
+                cnn.Close();
             }
-        }
+        } 
 
         public void ModificarI(Internacional pUnaTerminal)
         {
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
 
+            //PARAMETROS @CodTerminal varchar(6), @Ciudad varchar(40), @Pais varchar(10)
+            SqlCommand cmd = new SqlCommand("ModificarTerminalInternacional", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CodTerminal", pUnaTerminal.CodTerminal);
+            cmd.Parameters.AddWithValue("@Ciudad", pUnaTerminal.Ciudad);
+            cmd.Parameters.AddWithValue("@Pais", pUnaTerminal.Pais);
+            SqlParameter retorno = new SqlParameter("@Retorno", SqlDbType.Int);
+            retorno.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add(retorno);
+
+            try
+            {
+                cnn.Open();
+                cmd.ExecuteNonQuery();
+                if ((int)retorno.Value == -1)
+                    throw new Exception("NO EXISTE UNA TERMINAL INERNACIONAL CON DICHO CÓDIGO - No se modifica.");
+                else if ((int)retorno.Value == -2)
+                    throw new Exception("NO SE PUDO MODIFICAR LA TERMINAL.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
         }
 
         public void BajaI(Internacional pUnaTerminal)
         {
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
 
+            //PARAMETROS @CodTerminal varchar(6)
+            SqlCommand cmd = new SqlCommand("ModificarTerminalInternacional", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CodTerminal", pUnaTerminal.CodTerminal);
+            SqlParameter retorno = new SqlParameter("@Retorno", SqlDbType.Int);
+            retorno.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add(retorno);
+
+            try
+            {
+                cnn.Open();
+                cmd.ExecuteNonQuery();
+                if ((int)retorno.Value == -1)
+                    throw new Exception("NO EXISTE UNA TERMINAL CON DICHO CÓDIGO - No se elimina.");
+                else if ((int)retorno.Value == -2)
+                    throw new Exception("NO SE PUDO ELIMINAR LA TERMINAL.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
         }
 
         public List<Internacional> ListarInternacionales()
         {
-            return;
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
+            List<Internacional> lista = new List<Internacional>();
+            Internacional unaI = null;
+
+            SqlCommand cmd = new SqlCommand("ListarTerminalesInternacionales", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        unaI = new Internacional((string)reader["CodTerminal"], (string)reader["Ciudad"], (string)reader["Pais"]);
+                        lista.Add(unaI);
+                    }
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+            return lista;
         }
     }
 }

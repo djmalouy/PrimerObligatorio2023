@@ -24,21 +24,21 @@ namespace Persistencia
 
         public Empleado Buscar(string pNombUsu)
         {
-            SqlConnection _cnn = new SqlConnection(Conexion.Cnn);
-            Empleado _unEmpleado = null;
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
+            Empleado unE = null;
 
-            SqlCommand _comando = new SqlCommand("BuscarEmpleado", _cnn);
-            _comando.CommandType = System.Data.CommandType.StoredProcedure;
-            _comando.Parameters.AddWithValue("@NombUsuario", pNombUsu);
+            SqlCommand cmd = new SqlCommand("BuscarEmpleado", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@NombUsuario", pNombUsu);
 
             try
             {
-                _cnn.Open();
-                SqlDataReader _lector = _comando.ExecuteReader();
-                if (_lector.HasRows)
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    _lector.Read();
-                    _unEmpleado = new Empleado(pNombUsu, (string)_lector["Contrasenia"], (string)_lector["NombCompleto"]);
+                    reader.Read();
+                    unE = new Empleado(pNombUsu, (string)reader["Contrasenia"], (string)reader["NombCompleto"]);
                 }
             }
             catch (Exception ex)
@@ -47,31 +47,31 @@ namespace Persistencia
             }
             finally
             {
-                _cnn.Close();
+                cnn.Close();
             }
-            return _unEmpleado;
+            return unE;
         }
 
         public Empleado Logueo(string pNomUsu, string pPass)
         {
-            SqlConnection _cnn = new SqlConnection(Conexion.Cnn);
-            Empleado _unEmpleado = null;
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
+            Empleado unE = null;
 
-            SqlCommand _comando = new SqlCommand("LogueoEmpleado", _cnn);
-            _comando.CommandType = System.Data.CommandType.StoredProcedure;
-            _comando.Parameters.AddWithValue("@NombUsuario", pNomUsu);
-            _comando.Parameters.AddWithValue("@Contrasenia", pPass);
+            SqlCommand cmd = new SqlCommand("LogueoEmpleado", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@NombUsuario", pNomUsu);
+            cmd.Parameters.AddWithValue("@Contrasenia", pPass);
 
             try
             {
-                _cnn.Open();
-                SqlDataReader _lector = _comando.ExecuteReader();
-                if (_lector.HasRows)
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    _lector.Read();
-                    _unEmpleado = new Empleado(pNomUsu, (string)_lector["Contrasenia"], (string)_lector["NombCompleto"]);
+                    reader.Read();
+                    unE = new Empleado(pNomUsu, (string)reader["Contrasenia"], (string)reader["NombCompleto"]);
                 }
-                _lector.Close();
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -79,10 +79,9 @@ namespace Persistencia
             }
             finally
             {
-                _cnn.Close();
-
+                cnn.Close();
             }
-            return _unEmpleado;
+            return unE;
         }
     }
 }
