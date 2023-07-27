@@ -150,7 +150,7 @@ namespace Persistencia
             SqlConnection cnn = new SqlConnection(Conexion.Cnn);
 
             //PARAMETROS @CodTerminal varchar(6)
-            SqlCommand cmd = new SqlCommand("ModificarTerminalNacional", cnn);
+            SqlCommand cmd = new SqlCommand("BajaTerminal", cnn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@CodTerminal", pUnaTerminal.CodTerminal);
             SqlParameter retorno = new SqlParameter("@Retorno", SqlDbType.Int);
