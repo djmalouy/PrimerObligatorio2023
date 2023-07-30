@@ -8,5 +8,24 @@ namespace Logica
 {
     public class FabricaLogica
     {
+        public static ILogicaCompania GetLogicaCompania()
+        {
+            return (LogicaCompania.GetInstancia());
+        }
+
+        public static ILogicaEmpleado GetLogicaEmpleado()
+        {
+            return (LogicaEmpleado.GetInstancia());
+        }
+
+        public static ILogicaTerminal GetLogicaTerminal()
+        {
+            return (LogicaTerminal.GetInstancia());
+        }
+
+        public static ILogicaViaje GetLogicaViaje()
+        {
+            return (LogicaViaje.GetInstancia());
+        }
     }
 }

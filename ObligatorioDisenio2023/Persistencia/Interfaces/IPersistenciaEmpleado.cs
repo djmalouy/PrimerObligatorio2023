@@ -11,5 +11,6 @@ namespace Persistencia
     {
         Empleado Buscar(string pNomUsu);
         Empleado Logueo(string pNomUsu, string pPass);
+        void Alta(Empleado pUnEmp);
     }
 }

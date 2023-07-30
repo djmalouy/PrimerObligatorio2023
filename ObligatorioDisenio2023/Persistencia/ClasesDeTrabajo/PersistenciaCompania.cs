@@ -88,7 +88,6 @@ namespace Persistencia
             {
                 cnn.Close();
             }
-
         }
         public List<Compania> ListarCompanias()
         {

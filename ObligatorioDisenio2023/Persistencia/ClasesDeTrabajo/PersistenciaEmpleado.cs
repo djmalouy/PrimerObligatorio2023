@@ -83,5 +83,40 @@ namespace Persistencia
             }
             return unE;
         }
+
+        public void Alta(Empleado pUnEmp)
+        {
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
+
+            /*Parámetros en BBDD
+            @NombUsuario varchar(8), @Contrasenia varchar(6), @NombCompleto varchar(50) */
+
+            SqlCommand cmd = new SqlCommand("AltaEmpleado", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@NombUsuario",pUnEmp.NombUsuario);
+            cmd.Parameters.AddWithValue("@Contrasenia", pUnEmp.Contrasenia);
+            cmd.Parameters.AddWithValue("@NombCompleto", pUnEmp.NombCompleto);
+            SqlParameter retorno = new SqlParameter("@Retorno", SqlDbType.Int);
+            retorno.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add(retorno);
+
+            try
+            {
+                cnn.Open();
+                cmd.ExecuteNonQuery();
+                if ((int)retorno.Value == -1)
+                    throw new Exception("EL NOMBRE DE USUARIO YA EXISTE - No se crea.");
+                else if ((int)retorno.Value == -2)
+                    throw new Exception("NO SE PUDO CREAR EL EMPLEADO.");
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                cnn.Close();
+            }
+        }
     }
 }

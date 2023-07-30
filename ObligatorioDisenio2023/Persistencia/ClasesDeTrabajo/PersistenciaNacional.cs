@@ -20,7 +20,7 @@ namespace Persistencia
             return instancia;
         }
 
-        public Nacional BuscarN(string pCodTerminal)
+        internal Nacional BuscarN(string pCodTerminal)
         {
             SqlConnection cnn = new SqlConnection(Conexion.Cnn);
             Nacional unaN = null;

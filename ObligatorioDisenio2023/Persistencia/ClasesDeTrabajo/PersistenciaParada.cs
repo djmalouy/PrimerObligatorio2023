@@ -11,76 +11,69 @@ namespace Persistencia
 {
     internal class PersistenciaParada
     {
-        public void AgregarParada(Parada unaParada, int pCodViaje, SqlTransaction _pTransaccion)
+        internal static void AgregarParada(Parada unaParada, int pCodViaje, SqlTransaction _pTransaccion)
         {
-            SqlCommand _comando = new SqlCommand("AgregarParada", _pTransaccion.Connection);
-            _comando.CommandType = CommandType.StoredProcedure;
-            _comando.Parameters.AddWithValue("@CodViaje", pCodViaje);
-            _comando.Parameters.AddWithValue("@CodTerminal", unaParada.TerminalParada.CodTerminal);
-            //_comando.Parameters.AddWithValue("@Parada", unaParada.TerminalParada.CodTerminal); ????
-            SqlParameter _ParmRetorno = new SqlParameter("@Retorno", SqlDbType.Int);
-            _ParmRetorno.Direction = ParameterDirection.ReturnValue;
-            _comando.Parameters.Add(_ParmRetorno);
-
+            SqlCommand cmd = new SqlCommand("AgregarParada", _pTransaccion.Connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CodViaje", pCodViaje);
+            cmd.Parameters.AddWithValue("@CodTerminal", unaParada.TerminalParada.CodTerminal);
+            cmd.Parameters.AddWithValue("@Parada", unaParada.NroParada);
+            SqlParameter retorno = new SqlParameter("@Retorno", SqlDbType.Int);
+            retorno.Direction = ParameterDirection.ReturnValue;
+            cmd.Parameters.Add(retorno);
 
             try
             {
-                _comando.Transaction = _pTransaccion;
-                _comando.ExecuteNonQuery();
+                cmd.Transaction = _pTransaccion;
+                cmd.ExecuteNonQuery();
 
-                int retorno = Convert.ToInt32(_ParmRetorno.Value);
-
-                if (retorno == -1)
-                    throw new Exception("Error : El viaje no existe");
-                else if (retorno == -2)
-                    throw new Exception("Error : No se deben repetir Número de Parada ni Terminal");
-                else if (retorno == -3)
-                    throw new Exception("Error : La termina que esta intentando cargar no está activa");
-                else if (retorno == -4)
-                    throw new Exception("Error No Especificado");
-
+                if ((int)retorno.Value == -1)
+                    throw new Exception("Error : El viaje no existe.");
+                else if ((int)retorno.Value == -2)
+                    throw new Exception("Error : No se deben repetir Número de Parada ni Terminal.");
+                else if ((int)retorno.Value == -3)
+                    throw new Exception("Error : La termina que esta intentando cargar no está activa.");
+                else if ((int)retorno.Value == -4)
+                    throw new Exception("Ha ocurrido un error al intentar agregar las paradas.");
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-
         }
 
-        public List<Parada> ListarRecorrido(Viaje unViaje)
+        internal static List<Parada> ListarRecorrido(int pCodViaje)
         {
-            SqlConnection _cnn = new SqlConnection(Conexion.Cnn);
+            SqlConnection cnn = new SqlConnection(Conexion.Cnn);
 
-            SqlCommand _comando = new SqlCommand("ListarRecorridoDeUnViaje", _cnn);
-            _comando.CommandType = CommandType.StoredProcedure;
-            _comando.Parameters.AddWithValue("@CodViaje", unViaje.CodViaje);
+            SqlCommand cmd = new SqlCommand("ListarRecorridoDeUnViaje", cnn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CodViaje", pCodViaje);
 
             List<Parada> listado = new List<Parada>();
             try
             {
-                _cnn.Open();
+                cnn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
 
-                SqlDataReader _lector = _comando.ExecuteReader();
-
-                if (_lector.HasRows)
+                if (reader.HasRows)
                 {
-                    while (_lector.Read())
+                    while (reader.Read())
                     {
                         //busco la terminal
                         Terminal _unaTerminal = null;
                         // Primero internacional
-                        _unaTerminal = PersistenciaInternacional.GetInstancia().BuscarI((string)_lector["CodTerminal"]);
+                        _unaTerminal = PersistenciaInternacional.GetInstancia().BuscarI((string)reader["CodTerminal"]);
                         if (_unaTerminal == null)
                             // Si no es internacional, es nacional
-                            _unaTerminal = PersistenciaNacional.GetInstancia().BuscarN((string)_lector["CodTerminal"]);
+                            _unaTerminal = PersistenciaNacional.GetInstancia().BuscarN((string)reader["CodTerminal"]);
 
                         //Creo la parada
-                        Parada _unaParada = new Parada((int)_lector["Parada"], _unaTerminal);
+                        Parada _unaParada = new Parada((int)reader["Parada"], _unaTerminal);
                         listado.Add(_unaParada);
                     }
                 }
-
-                _lector.Close();
+                reader.Close();
             }
             catch (Exception ex)
             {
@@ -88,9 +81,8 @@ namespace Persistencia
             }
             finally
             {
-                _cnn.Close();
+                cnn.Close();
             }
-
             return listado;
         }
     }

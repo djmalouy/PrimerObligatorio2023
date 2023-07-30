@@ -23,10 +23,16 @@ namespace Logica
         {
             return FabricaPersistencia.GetPersistenciaEmpleado().Buscar(pNombUsu);
         }
+        public void Alta(Empleado pUnEmp)
+        {
+            FabricaPersistencia.GetPersistenciaEmpleado().Alta(pUnEmp);
+        }
 
         public Empleado Logueo(string pNomUsu, string pPass)
         {
             return FabricaPersistencia.GetPersistenciaEmpleado().Logueo(pNomUsu, pPass);
         }
+
+
     }
 }

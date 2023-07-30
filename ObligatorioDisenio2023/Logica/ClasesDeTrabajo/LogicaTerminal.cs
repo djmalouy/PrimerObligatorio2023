@@ -19,15 +19,6 @@ namespace Logica
             return instancia;
         }
 
-        public Terminal Buscar(string pCodTerminal)
-        {
-            Terminal unaTerminal = null;
-            unaTerminal = FabricaPersistencia.GetPersistenciaNacional().BuscarN(pCodTerminal);
-            if (unaTerminal == null)
-                unaTerminal = FabricaPersistencia.GetPersistenciaInternacional().BuscarI(pCodTerminal);
-            return unaTerminal;
-        }
-
         public Terminal BuscarActiva(string pCodTerminal)
         {
             Terminal unaTerminal = null;

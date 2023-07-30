@@ -872,9 +872,9 @@ BEGIN
 		VALUES (@Precio, @Anden, @MaximoPermitido, @FechaYHoraPartida, @FechaYHoraArribo, @NomUsuEmp, @Compania)
 		
 	IF (@@Error <> 0)
-		return -5
+		return -4
 
-	return 1 -- se creó el viaje con éxito
+	return @@IDENTITY -- se creó el viaje con éxito, devuelvo CodViaje
 END
 GO
 
