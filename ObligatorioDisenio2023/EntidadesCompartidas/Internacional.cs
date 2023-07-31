@@ -12,10 +12,10 @@ namespace EntidadesCompartidas
 
         public string Pais
         {
-            get{ return Pais; }
+            get{ return _Pais; }
             set{
                 if (value.Length >= 4 && value.Length <= 10)
-                    Pais = value;
+                    _Pais = value;
                 else
                     throw new Exception("El país debe tener entre cuatro y diez caracteres.");
             }

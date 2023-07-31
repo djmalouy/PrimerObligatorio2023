@@ -9,3 +9,7 @@ C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio
 C:\Users\59893\Desktop\Diseño I\PrimerObligatorio2023\ObligatorioDisenio2023\Persistencia\obj\Debug\Persistencia.csprojResolveAssemblyReference.cache
 C:\Users\59893\Desktop\Diseño I\PrimerObligatorio2023\ObligatorioDisenio2023\Persistencia\obj\Debug\Persistencia.dll
 C:\Users\59893\Desktop\Diseño I\PrimerObligatorio2023\ObligatorioDisenio2023\Persistencia\obj\Debug\Persistencia.pdb
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Persistencia\bin\Debug\Persistencia.dll
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Persistencia\bin\Debug\Persistencia.pdb
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Persistencia\bin\Debug\EntidadesCompartidas.dll
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Persistencia\bin\Debug\EntidadesCompartidas.pdb

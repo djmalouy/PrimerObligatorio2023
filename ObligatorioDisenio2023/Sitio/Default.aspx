@@ -26,6 +26,9 @@
         .auto-style6 {
             text-align: center;
         }
+        .auto-style7 {
+            color: #FF0000;
+        }
     </style>
 </head>
 <body>
@@ -39,14 +42,16 @@
             </tr>
             <tr>
                 <td class="auto-style3">
-                    <asp:Login ID="Login" runat="server" DisplayRememberMe="False" RenderOuterTable="False">
+                    <asp:Login ID="Login" runat="server" DisplayRememberMe="False" RenderOuterTable="False" OnAuthenticate="Login_Authenticate">
                     </asp:Login>
                 </td>
             </tr>
             <tr>
                 <td class="auto-style2">&nbsp;&nbsp;&nbsp;
-                    <asp:GridView ID="GVListadoViajes" runat="server" AllowPaging="True" Align="center">
+                    <asp:GridView ID="GVListadoViajes" runat="server" AllowPaging="True" Align="center" OnPageIndexChanging="GVListadoViajes_PageIndexChanging">
                     </asp:GridView>
+                    <br />
+                    <asp:Label ID="lblError" runat="server" CssClass="auto-style7"></asp:Label>
                 </td>
             </tr>
         </table>
