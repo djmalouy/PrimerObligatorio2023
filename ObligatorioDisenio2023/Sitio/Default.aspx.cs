@@ -34,12 +34,12 @@ public partial class _Default : System.Web.UI.Page
         GVListadoViajes.DataBind();
     }
 
-    protected void Login_Authenticate(object sender, AuthenticateEventArgs e)
+    protected void Logueo_Click(object sender, EventArgs e)
     {
         try
         {
-            string Usu = Login.UserName.Trim();
-            string Pass = Login.Password.Trim();
+            string Usu = txtUsuario.Text.Trim();
+            string Pass = txtPass.Text.Trim();
             Empleado unEmp = FabricaLogica.GetLogicaEmpleado().Logueo(Usu, Pass);
 
             if (unEmp == null)

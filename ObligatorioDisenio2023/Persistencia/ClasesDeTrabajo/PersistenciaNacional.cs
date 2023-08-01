@@ -97,9 +97,12 @@ namespace Persistencia
             {
                 cnn.Open();
                 cmd.ExecuteNonQuery();
-                if ((int)retorno.Value == -1)
+
+                int ret = Convert.ToInt32(retorno.Value);
+
+                if (ret == -1)
                     throw new Exception("YA EXISTE UNA TERMINAL CON DICHO CÓDIGO - No se crea.");
-                else if ((int)retorno.Value == -2)
+                else if (ret == -2)
                     throw new Exception("NO SE PUDO CREAR LA TERMINAL.");
             }
             catch (Exception ex)
@@ -130,9 +133,12 @@ namespace Persistencia
             {
                 cnn.Open();
                 cmd.ExecuteNonQuery();
-                if ((int)retorno.Value == -1)
+
+                int ret = Convert.ToInt32(retorno.Value);
+
+                if (ret == -1)
                     throw new Exception("NO EXISTE UNA TERMINAL NACIONAL CON DICHO CÓDIGO - No se modifica.");
-                else if ((int)retorno.Value == -2)
+                else if (ret == -2)
                     throw new Exception("NO SE PUDO MODIFICAR LA TERMINAL.");
             }
             catch (Exception ex)
@@ -161,9 +167,12 @@ namespace Persistencia
             {
                 cnn.Open();
                 cmd.ExecuteNonQuery();
-                if ((int)retorno.Value == -1)
+
+                int ret = Convert.ToInt32(retorno.Value);
+
+                if (ret == -1)
                     throw new Exception("NO EXISTE UNA TERMINAL CON DICHO CÓDIGO - No se elimina.");
-                else if ((int)retorno.Value == -2)
+                else if (ret == -2)
                     throw new Exception("NO SE PUDO ELIMINAR LA TERMINAL.");
             }
             catch (Exception ex)

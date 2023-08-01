@@ -33,7 +33,7 @@ namespace Persistencia
             //PARAMETROS DEL SP EN LA BBDD
             //@Nombre varchar(30)
 
-            cmd.Parameters.AddWithValue("@CodigoInterno", pNombre);
+            cmd.Parameters.AddWithValue("@Nombre", pNombre);
             try
             {
                 con.Open();
@@ -75,9 +75,12 @@ namespace Persistencia
             {
                 cnn.Open();
                 cmd.ExecuteNonQuery();
-                if ((int)retorno.Value == -1)
+
+                int ret = Convert.ToInt32(retorno.Value);
+
+                if (ret == -1)
                     throw new Exception("Ya existe una Compañia con dicho nombre.");
-                else if ((int)retorno.Value == -2)
+                else if (ret == -2)
                     throw new Exception("Error en Alta Compañia");
             }
             catch (Exception ex)

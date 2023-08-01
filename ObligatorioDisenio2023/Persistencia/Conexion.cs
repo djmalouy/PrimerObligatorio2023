@@ -8,7 +8,7 @@ namespace Persistencia
 {
     internal class Conexion
     {
-        private static string _cnn = "Data Source=.; Initial Catalog = Banco; Integrated Security = true";
+        private static string _cnn = "Data Source=.; Initial Catalog = ObligatorioDisenio1; Integrated Security = true";
         internal static string Cnn
         {
             get{return _cnn;}

@@ -104,9 +104,11 @@ namespace Persistencia
             {
                 cnn.Open();
                 cmd.ExecuteNonQuery();
-                if ((int)retorno.Value == -1)
+
+                int ret = Convert.ToInt32(retorno.Value);
+                if (ret == -1)
                     throw new Exception("EL NOMBRE DE USUARIO YA EXISTE - No se crea.");
-                else if ((int)retorno.Value == -2)
+                else if (ret == -2)
                     throw new Exception("NO SE PUDO CREAR EL EMPLEADO.");
             }
             catch (Exception ex)

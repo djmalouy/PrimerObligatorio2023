@@ -35,7 +35,7 @@ namespace EntidadesCompartidas
             get{return _FechaYHoraArribo;}
 
             set{
-                if (_FechaYHoraArribo > _FechaYHoraPartida)
+                if (value > _FechaYHoraPartida)
                     _FechaYHoraArribo = value;
                 else
                     throw new Exception("La hora de arribo no puede ser menor o igual que la hora de partida.");
@@ -104,6 +104,8 @@ namespace EntidadesCompartidas
                 if (value != null) { 
                     if (value.Count > 0)
                         _Paradas = value;
+                    else
+                        throw new Exception("No puede haber un viaje sin paradas en su recorrido.");
                 }
                 else
                     throw new Exception("No puede haber un viaje sin paradas en su recorrido.");

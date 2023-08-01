@@ -38,7 +38,7 @@ namespace Persistencia
             cmd.Parameters.AddWithValue("@FechaYHoraPartida", unViaje.FechaYHoraPartida);
             cmd.Parameters.AddWithValue("@FechaYHoraArribo", unViaje.FechaYHoraArribo);
             cmd.Parameters.AddWithValue("@NomUsuEmp", unViaje.EmpleadoCrea.NombUsuario);
-            cmd.Parameters.AddWithValue("@Compania", unViaje.CompaniaCrea.Nombre);
+            cmd.Parameters.AddWithValue("@Compania", unViaje.CompaniaCrea);
 
             SqlParameter retorno = new SqlParameter("@Retorno", SqlDbType.Int);
             retorno.Direction = ParameterDirection.ReturnValue;
@@ -55,7 +55,7 @@ namespace Persistencia
                 //El comando de AltaViaje se ejecuta dentro de la transacción
                 cmd.Transaction = miTransaccion;
                 cmd.ExecuteNonQuery();
-                int codViaje = (int)retorno.Value;
+                int codViaje = Convert.ToInt32(retorno.Value);
 
                 if (codViaje == -1)
                     throw new Exception("ERROR - El empleado no existe, no se crea.");
@@ -107,8 +107,8 @@ namespace Persistencia
                     List<Parada> listaParadas = new List<Parada>();
                     while (reader.Read())
                     {
-                        unaC = PersistenciaCompania.GetInstancia().Buscar((string)reader["Nombre"]);
-                        unEmp = PersistenciaEmpleado.GetInstancia().Buscar((string)reader["NombUsuario"]);
+                        unaC = PersistenciaCompania.GetInstancia().Buscar((string)reader["Compania"]);
+                        unEmp = PersistenciaEmpleado.GetInstancia().Buscar((string)reader["NomUsuEmp"]);
                         listaParadas = PersistenciaParada.ListarRecorrido((int)reader["CodViaje"]);
 
                         unViaje = new Viaje((int)reader["CodViaje"], (DateTime)reader["FechaYHoraPartida"], (DateTime)reader["FechaYHoraArribo"],(int)reader["Precio"],

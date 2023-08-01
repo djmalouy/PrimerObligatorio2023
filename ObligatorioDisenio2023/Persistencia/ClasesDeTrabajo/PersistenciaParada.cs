@@ -27,13 +27,15 @@ namespace Persistencia
                 cmd.Transaction = _pTransaccion;
                 cmd.ExecuteNonQuery();
 
-                if ((int)retorno.Value == -1)
+                int ret = Convert.ToInt32(retorno.Value);
+
+                if (ret == -1)
                     throw new Exception("Error : El viaje no existe.");
-                else if ((int)retorno.Value == -2)
+                else if (ret == -2)
                     throw new Exception("Error : No se deben repetir Número de Parada ni Terminal.");
-                else if ((int)retorno.Value == -3)
+                else if (ret == -3)
                     throw new Exception("Error : La termina que esta intentando cargar no está activa.");
-                else if ((int)retorno.Value == -4)
+                else if (ret == -4)
                     throw new Exception("Ha ocurrido un error al intentar agregar las paradas.");
             }
             catch (Exception ex)

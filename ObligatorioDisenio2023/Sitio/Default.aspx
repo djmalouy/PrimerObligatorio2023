@@ -29,6 +29,9 @@
         .auto-style7 {
             color: #FF0000;
         }
+        .auto-style8 {
+            margin-left: 0px;
+        }
     </style>
 </head>
 <body>
@@ -42,8 +45,15 @@
             </tr>
             <tr>
                 <td class="auto-style3">
-                    <asp:Login ID="Login" runat="server" DisplayRememberMe="False" RenderOuterTable="False" OnAuthenticate="Login_Authenticate">
-                    </asp:Login>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; INICIO DE SESIÓN<br />
+                    Usuario:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <asp:TextBox ID="txtUsuario" runat="server" CssClass="auto-style8"></asp:TextBox>
+                    <br />
+                    Contraseña:&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:TextBox ID="txtPass" runat="server" TextMode="Password" Width="121px"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="Logueo" runat="server" OnClick="Logueo_Click" Text="Login" />
                 </td>
             </tr>
             <tr>
