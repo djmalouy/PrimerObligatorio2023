@@ -49,9 +49,9 @@
         </tr>
         <tr>
             <td class="auto-style3">
-                <asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" />
+                <asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" OnClick="btnLimpiar_Click" />
 &nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="btnFiltrar" runat="server" Height="40px" ImageUrl="~/Images/Filtrar.png" />
+                <asp:ImageButton ID="btnFiltrar" runat="server" Height="40px" ImageUrl="~/Images/Filtrar.png" OnClick="btnFiltrar_Click" />
             </td>
         </tr>
     </table>
@@ -59,7 +59,17 @@
     <table class="auto-style2">
         <tr>
             <td>
-                <asp:GridView ID="GVListadoViajes" runat="server" Width="239px" Align="center" AllowPaging="True">
+                <asp:GridView ID="GVListadoViajes" runat="server" Width="239px" Align="center" AllowPaging="True" AutoGenerateColumns="False" OnPageIndexChanging="GVListadoViajes_PageIndexChanging">
+                    <Columns>
+                        <asp:BoundField DataField="CodViaje" HeaderText="CodViaje" />
+                        <asp:BoundField DataField="Precio" HeaderText="Precio" />
+                        <asp:BoundField DataField="Anden" HeaderText="Anden" />
+                        <asp:BoundField DataField="MaximoPermitido" HeaderText="MaximoPermitido" />
+                        <asp:BoundField DataField="FechaYHoraPartida" HeaderText="FechaYHoraPartida" />
+                        <asp:BoundField DataField="FechaYHoraArribo" HeaderText="FechaYHoraArribo" />
+                        <asp:BoundField DataField="EmpleadoCrea.NombUsuario" HeaderText="NomUsuEmp" />
+                        <asp:BoundField DataField="CompaniaCrea.Nombre" HeaderText="Compania" />
+                    </Columns>
                 </asp:GridView>
             </td>
         </tr>

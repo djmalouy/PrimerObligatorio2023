@@ -10,7 +10,6 @@ namespace Logica
 {
     public interface ILogicaViaje
     {
-
         void AltaViaje(Viaje unViaje);
         List<Viaje> ViajesSinPartir();
         List<Viaje> ViajesDelMes();

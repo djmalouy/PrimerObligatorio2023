@@ -151,8 +151,8 @@ namespace Persistencia
 
                     while (reader.Read())
                     {
-                        unaC = PersistenciaCompania.GetInstancia().Buscar((string)reader["Nombre"]);
-                        unEmp = PersistenciaEmpleado.GetInstancia().Buscar((string)reader["NombUsuario"]);
+                        unaC = PersistenciaCompania.GetInstancia().Buscar((string)reader["Compania"]);
+                        unEmp = PersistenciaEmpleado.GetInstancia().Buscar((string)reader["NomUsuEmp"]);
                         listaParadas = PersistenciaParada.ListarRecorrido((int)reader["CodViaje"]);
 
                         unViaje = new Viaje((int)reader["CodViaje"], (DateTime)reader["FechaYHoraPartida"], (DateTime)reader["FechaYHoraArribo"], (int)reader["Precio"],
