@@ -22,10 +22,12 @@ public partial class ABMTerminalInternacional : System.Web.UI.Page
     private void Limpiar()
     {
         Session["Internacional"] = null;
+
         txtCiudad.Text = "";
         txtCodTerminal.Text = "";
         txtPais.Text = "";
         lblError.Text = "";
+
         txtCodTerminal.Enabled = true;
         txtCiudad.Enabled = false;
         txtPais.Enabled = false;
@@ -36,6 +38,7 @@ public partial class ABMTerminalInternacional : System.Web.UI.Page
         btnAlta.Enabled = false;
         btnEliminar.Enabled = false;
         btnModificar.Enabled = false;
+
         btnAlta.Visible = false;
         btnEliminar.Visible = false;
         btnModificar.Visible = false;
@@ -45,11 +48,13 @@ public partial class ABMTerminalInternacional : System.Web.UI.Page
     {
         btnAlta.Enabled = true;
         btnAlta.Visible = true;
+
         btnEliminar.Enabled = false;
         btnEliminar.Visible = false;
+
         btnModificar.Enabled = false;
         btnModificar.Visible = false;
-        btnEliminar.Enabled = false;
+
         txtCodTerminal.Enabled = false;
         txtCiudad.Enabled = true;
         txtPais.Enabled = true;
@@ -59,10 +64,13 @@ public partial class ABMTerminalInternacional : System.Web.UI.Page
     {
         btnAlta.Enabled = false;
         btnAlta.Visible = false;
+
         btnEliminar.Enabled = true;
         btnEliminar.Visible = true;
+
         btnModificar.Enabled = true;
         btnModificar.Visible = true;
+
         txtCodTerminal.Enabled = false;
         txtCiudad.Enabled = true;
         txtPais.Enabled = true;
@@ -116,7 +124,7 @@ public partial class ABMTerminalInternacional : System.Web.UI.Page
             Limpiar();
             DesactivoBotones();
 
-            lblError.Text = "Termina eliminada con éxito.";
+            lblError.Text = "Terminal eliminada con éxito.";
         }
         catch (Exception ex)
         {
@@ -133,7 +141,7 @@ public partial class ABMTerminalInternacional : System.Web.UI.Page
 
             if (ciudad.Length <= 3 || ciudad.Length > 40)
                 throw new Exception("La ciudad debe tener entre 4 y 40 caracteres.");
-            if(pais.Length < 4 || pais.Length > 10)
+            if (pais.Length < 4 || pais.Length > 10)
                 throw new Exception("El pais debe tener entre 4 y 10.");
 
             Internacional unaInternacional = (Internacional)Session["Internacional"];
@@ -144,7 +152,33 @@ public partial class ABMTerminalInternacional : System.Web.UI.Page
             Limpiar();
             DesactivoBotones();
 
-            lblError.Text = "Termina modificada con éxito.";
+            lblError.Text = "Terminal modificada con éxito.";
+        }
+        catch (Exception ex)
+        {
+            lblError.Text = ex.Message;
+        }
+    }
+
+    protected void btnAlta_Click(object sender, ImageClickEventArgs e)
+    {
+        try
+        {
+            string ciudad = txtCiudad.Text.Trim();
+            string pais = txtPais.Text.Trim();
+
+            if (ciudad.Length <= 3 || ciudad.Length > 40)
+                throw new Exception("La ciudad debe tener entre 4 y 40 caracteres.");
+            if (pais.Length < 4 || pais.Length > 10)
+                throw new Exception("El pais debe tener entre 4 y 10.");
+
+            Internacional unaInternacional = new Internacional(txtCodTerminal.Text.Trim(), ciudad, pais);
+
+            FabricaLogica.GetLogicaTerminal().Alta(unaInternacional);
+            Limpiar();
+            DesactivoBotones();
+
+            lblError.Text = "Terminal creada con éxito.";
         }
         catch (Exception ex)
         {

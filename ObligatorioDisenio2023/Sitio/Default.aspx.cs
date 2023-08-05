@@ -21,9 +21,9 @@ public partial class _Default : System.Web.UI.Page
             GVListadoViajes.DataSource = listaViajes;
             GVListadoViajes.DataBind();
         }
-        catch (Exception ex)
+        catch (Exception)
         {
-            lblError.Text = ex.Message;
+            lblError.Text = "Ha ocurrido un error al comunicarse con la Base de Datos, por favor intetelo más tarde.";
         }
     }
 

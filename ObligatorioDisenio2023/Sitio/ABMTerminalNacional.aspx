@@ -30,25 +30,26 @@
         <tr>
             <td class="auto-style3"><strong>Código de Terminal:&nbsp;&nbsp;&nbsp; </strong></td>
             <td class="auto-style8">
-                <asp:TextBox ID="txtCodTerminal" runat="server" Width="195px"></asp:TextBox>
+                <asp:TextBox ID="txtCodTerminal" runat="server" Width="190px"></asp:TextBox>
             </td>
             <td>
-                <asp:ImageButton ID="btnBuscar" runat="server" Height="40px" Width="125px" ImageUrl="~/Images/Buscar.png" />
+                <asp:ImageButton ID="btnBuscar" runat="server" Height="40px" Width="125px" ImageUrl="~/Images/Buscar.png" OnClick="btnBuscar_Click" />
             </td>
         </tr>
         <tr>
             <td class="auto-style3"><strong>Ciudad:&nbsp;&nbsp;&nbsp; </strong></td>
             <td class="auto-style8">
-                <asp:TextBox ID="txtCiudad" runat="server" Width="193px"></asp:TextBox>
+                <asp:TextBox ID="txtCiudad" runat="server" Width="190px"></asp:TextBox>
             </td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style3"><strong>Dispone de servicio de Taxi?&nbsp;&nbsp;&nbsp; </strong></td>
+            <td class="auto-style3"><strong>¿Dispone de servicio de Taxi?&nbsp;&nbsp;&nbsp; </strong></td>
             <td class="auto-style8">
                 <asp:DropDownList ID="ddlTaxi" runat="server">
-                    <asp:ListItem>SI</asp:ListItem>
-                    <asp:ListItem>NO</asp:ListItem>
+                    <asp:ListItem>Por favor seleccione</asp:ListItem>
+                    <asp:ListItem Value="SI">SI</asp:ListItem>
+                    <asp:ListItem Value="NO">NO</asp:ListItem>
                 </asp:DropDownList>
             </td>
             <td>&nbsp;</td>
@@ -60,13 +61,13 @@
         </tr>
         <tr>
             <td class="auto-style6" colspan="3">
-                <asp:ImageButton ID="btnAlta" runat="server" Height="40px" ImageUrl="~/Images/Alta.png" />
+                <asp:ImageButton ID="btnAlta" runat="server" Height="40px" ImageUrl="~/Images/Alta.png" OnClick="btnAlta_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="btnModificar" runat="server" Height="40px" Width="126px" ImageUrl="~/Images/Modificar.png" />
+                <asp:ImageButton ID="btnModificar" runat="server" Height="40px" Width="126px" ImageUrl="~/Images/Modificar.png" OnClick="btnModificar_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="btnEliminar" runat="server" Height="40px" Width="124px" ImageUrl="~/Images/Eliminar.png" />
+                <asp:ImageButton ID="btnEliminar" runat="server" Height="40px" Width="124px" ImageUrl="~/Images/Eliminar.png" OnClick="btnEliminar_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" />
+                <asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" OnClick="btnLimpiar_Click" />
             </td>
         </tr>
     </table>

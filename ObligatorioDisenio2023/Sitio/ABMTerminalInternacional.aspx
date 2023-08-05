@@ -86,7 +86,7 @@
         </tr>
         <tr>
             <td class="auto-style15" colspan="3">
-                <asp:ImageButton ID="btnAlta" runat="server" Height="40px" ImageUrl="~/Images/Alta.png" />
+                <asp:ImageButton ID="btnAlta" runat="server" Height="40px" ImageUrl="~/Images/Alta.png" OnClick="btnAlta_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:ImageButton ID="btnModificar" runat="server" Height="40px" Width="131px" ImageUrl="~/Images/Modificar.png" OnClick="btnModificar_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
