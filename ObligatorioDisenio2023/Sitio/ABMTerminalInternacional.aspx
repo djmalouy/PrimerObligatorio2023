@@ -88,9 +88,9 @@
             <td class="auto-style15" colspan="3">
                 <asp:ImageButton ID="btnAlta" runat="server" Height="40px" ImageUrl="~/Images/Alta.png" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="btnModificar" runat="server" Height="40px" Width="131px" ImageUrl="~/Images/Modificar.png" />
+                <asp:ImageButton ID="btnModificar" runat="server" Height="40px" Width="131px" ImageUrl="~/Images/Modificar.png" OnClick="btnModificar_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="btnEliminar" runat="server" Height="40px" Width="134px" ImageUrl="~/Images/Eliminar.png" />
+                <asp:ImageButton ID="btnEliminar" runat="server" Height="40px" Width="134px" ImageUrl="~/Images/Eliminar.png" OnClick="btnEliminar_Click" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" OnClick="btnLimpiar_Click" />
 &nbsp;

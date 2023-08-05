@@ -27,7 +27,7 @@ namespace EntidadesCompartidas
         {
             get{ return _Ciudad;}
             set{
-                if (value.Length > 3 && value.Length < 40)
+                if (value.Length > 3 && value.Length <= 40)
                     _Ciudad = value;
                 else
                     throw new Exception("La ciudad debe tener mínimo entre cuatro y 40 caracteres.");

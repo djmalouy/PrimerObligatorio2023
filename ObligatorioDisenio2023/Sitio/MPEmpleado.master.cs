@@ -4,12 +4,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using EntidadesCompartidas;
 
 public partial class MPEmpleado : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(Session["Empleado"] == null)
+        if(!(Session["Empleado"] is Empleado))
         {
             Response.Redirect("~/default.aspx");
         }
