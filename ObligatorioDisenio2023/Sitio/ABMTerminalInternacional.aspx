@@ -60,7 +60,7 @@
                 <asp:TextBox ID="txtCodTerminal" runat="server" Width="207px"></asp:TextBox>
             </td>
             <td>
-                <asp:ImageButton ID="btnBuscar" runat="server" Height="40px" ImageUrl="~/Images/Buscar.png" />
+                <asp:ImageButton ID="btnBuscar" runat="server" Height="40px" ImageUrl="~/Images/Buscar.png" OnClick="btnBuscar_Click" />
             </td>
         </tr>
         <tr>
@@ -92,7 +92,7 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:ImageButton ID="btnEliminar" runat="server" Height="40px" Width="134px" ImageUrl="~/Images/Eliminar.png" />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" />
+                <asp:ImageButton ID="btnLimpiar" runat="server" Height="40px" ImageUrl="~/Images/Limpiar.png" OnClick="btnLimpiar_Click" />
 &nbsp;
             </td>
         </tr>
