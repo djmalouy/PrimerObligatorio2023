@@ -128,11 +128,11 @@
                 <asp:DropDownList ID="ddlTerminal" runat="server">
                 </asp:DropDownList>
 &nbsp;&nbsp;
-                <asp:ImageButton ID="btnAgregarParada" runat="server" Height="40px" ImageUrl="~/Images/AgregarParada.png" />
+                <asp:ImageButton ID="btnAgregarParada" runat="server" Height="40px" ImageUrl="~/Images/AgregarParada.png" OnClick="btnAgregarParada_Click" />
             </td>
             <td colspan="2" rowspan="2">
                 <asp:ListBox ID="lbParadas" runat="server" Height="117px" Width="310px"></asp:ListBox>
-                <asp:ImageButton ID="btnQuitarParada" runat="server" Height="40px" ImageUrl="~/Images/QuitarParada.png" />
+                <asp:ImageButton ID="btnQuitarParada" runat="server" Height="40px" ImageUrl="~/Images/QuitarParada.png" OnClick="btnQuitarParada_Click" />
             </td>
         </tr>
         <tr>
@@ -145,9 +145,9 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style3" colspan="4">&nbsp;<asp:ImageButton ID="btnLimpiar" runat="server" Height="50px" ImageUrl="~/Images/Limpiar.png" />
+            <td class="auto-style3" colspan="4">&nbsp;<asp:ImageButton ID="btnLimpiar" runat="server" Height="50px" ImageUrl="~/Images/Limpiar.png" OnClick="btnLimpiar_Click" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:ImageButton ID="btnAlta" runat="server" Height="50px" ImageUrl="~/Images/Alta.png" />
+                <asp:ImageButton ID="btnAlta" runat="server" Height="50px" ImageUrl="~/Images/Alta.png" OnClick="btnAlta_Click" />
             </td>
         </tr>
     </table>
