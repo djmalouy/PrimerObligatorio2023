@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 using EntidadesCompartidas;
 using Logica;
 
@@ -21,6 +22,10 @@ public partial class AltaCompania : System.Web.UI.Page
     {
         try
         {
+            if(!Regex.IsMatch(txtTelefono.Text.Trim(), "^[0-9]+$"))
+            {
+                throw new Exception("El telefono debe estar compuesto unicamente por dígitos numéricos.");
+            }
             Compania unaC = new Compania(txtNombre.Text.Trim(), txtDireccion.Text.Trim(), txtTelefono.Text.Trim());
             FabricaLogica.GetLogicaCompania().AltaCompania(unaC);
             Limpiar();

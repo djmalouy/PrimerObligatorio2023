@@ -73,6 +73,8 @@ public partial class ListadoDeViajes : System.Web.UI.Page
         ddlDestinoFinal.SelectedIndex = -1;
         txtFecha.Text = "";
         lblError.Text = "";
+        GVListadoViajes.DataSource = Session["ListaViajes"];
+        GVListadoViajes.DataBind();
     }
 
     protected void GVListadoViajes_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -126,7 +128,7 @@ public partial class ListadoDeViajes : System.Web.UI.Page
                 }
                 //Se debera tener en cuenta la fecha de partida
                 ListaTotal = (from viaje in ListaTotal
-                              where viaje.FechaYHoraPartida == Convert.ToDateTime(fechaPartida)
+                              where viaje.FechaYHoraPartida.Date == Convert.ToDateTime(fechaPartida.Date)
                               select viaje
                                 ).ToList();
             }

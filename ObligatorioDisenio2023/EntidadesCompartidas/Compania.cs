@@ -41,7 +41,7 @@ namespace EntidadesCompartidas
         {
             get{return _Telefono;}
             set{
-                if(Regex.IsMatch(value, "[0-9]{4,20}") && !Regex.IsMatch(value, "[a-zA-Z]"))
+                if(Regex.IsMatch(value, "^[0-9]+$"))
                     _Telefono = value;
                 else
                     throw new Exception("El telefono de la compañía debe tener mínimo cuatro y máximo veinte dígitos.");

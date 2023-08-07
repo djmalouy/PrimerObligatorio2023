@@ -72,10 +72,47 @@ public partial class AltaViajes : System.Web.UI.Page
         try
         {
             Viaje unViaje = null;
-            Compania unaCompania = ((List<Compania>)Session["ListaCompanias"])[ddlCompania.SelectedIndex];
+            Compania unaCompania = null;
+            DateTime fechaPartida;
+            DateTime fechaArribo;
+            int precio;
 
-            unViaje = new Viaje(0, Convert.ToDateTime(txtFechaPartida.Text), Convert.ToDateTime(txtFechaArribo.Text), Convert.ToInt32(txtPrecio.Text.Trim()), 
-                                    Convert.ToInt32(ddlAnden.SelectedValue), Convert.ToInt32(txtMaximo.Text.Trim()), unaCompania,
+            if (lbParadas.Items.Count == 0)
+            {
+                throw new Exception("Debe seleccionar al menos una parada al recorrido del viaje.");
+            }
+
+            if(ddlCompania.SelectedIndex != 0)
+            {
+                unaCompania = ((List<Compania>)Session["ListaCompanias"])[ddlCompania.SelectedIndex];
+            }
+
+            try
+            {
+                fechaArribo = Convert.ToDateTime(txtFechaArribo.Text);
+                fechaPartida = Convert.ToDateTime(txtFechaPartida.Text);
+            }
+            catch (Exception)
+            {
+                throw new Exception("Revise el formato de la fecha de partida y/o arribo, una de las dos es incorrecta.");
+            }
+
+            try
+            {
+                precio = Convert.ToInt32(txtPrecio.Text.Trim());
+            }
+            catch (Exception)
+            {
+                throw new Exception("El precio debe ser numérico.");
+            }
+
+            if (precio <= 0)
+            {
+                throw new Exception("El precio debe ser un número positivo.");
+            }
+
+            unViaje = new Viaje(0, fechaPartida, fechaArribo, precio, 
+                                    Convert.ToInt32(ddlAnden.SelectedValue), Convert.ToInt32(ddlMaximo.SelectedValue), unaCompania,
                                     (Empleado)Session["Empleado"], CargoListaParadas());
             FabricaLogica.GetLogicaViaje().AltaViaje(unViaje);
             Limpiar();
@@ -114,7 +151,7 @@ public partial class AltaViajes : System.Web.UI.Page
         txtFechaArribo.Text = "";
         txtPrecio.Text = "";
         ddlAnden.SelectedIndex = -1;
-        txtMaximo.Text = "";
+        ddlMaximo.SelectedIndex = -1;
         ddlCompania.SelectedIndex = -1;
         ddlTerminal.SelectedIndex = -1;
         lbParadas.Items.Clear();
@@ -122,6 +159,8 @@ public partial class AltaViajes : System.Web.UI.Page
 
     protected void btnAgregarParada_Click(object sender, ImageClickEventArgs e)
     {
+        lblError.Text = "";
+
         // Verifico q se haya seleccionado alguna terminal
         if (ddlTerminal.SelectedValue == "Por favor seleccione...")
         {
@@ -129,12 +168,18 @@ public partial class AltaViajes : System.Web.UI.Page
         }
         else
         {
-            if ()
+            foreach (ListItem item in lbParadas.Items)
             {
-                lbParadas.Items.Add(ddlTerminal.SelectedValue);
-                ddlTerminal.SelectedIndex = -1;
-                lblError.Text = "Se agrego Correctamente la parada.";
+                if (item.Value == ddlTerminal.SelectedValue)
+                {
+                    lblError.Text = "ERROR: La parada seleccionada ya esta marcada como parte del recorrido. No se agrega";
+                    return;
+                }
             }
+            
+            // Si llego hasta aca, agrega la parada porque no esta en la lista
+            lbParadas.Items.Add(ddlTerminal.SelectedValue);
+            ddlTerminal.SelectedIndex = -1;
         }
 
     }
