@@ -38,7 +38,7 @@ namespace Persistencia
             cmd.Parameters.AddWithValue("@FechaYHoraPartida", unViaje.FechaYHoraPartida);
             cmd.Parameters.AddWithValue("@FechaYHoraArribo", unViaje.FechaYHoraArribo);
             cmd.Parameters.AddWithValue("@NomUsuEmp", unViaje.EmpleadoCrea.NombUsuario);
-            cmd.Parameters.AddWithValue("@Compania", unViaje.CompaniaCrea);
+            cmd.Parameters.AddWithValue("@Compania", unViaje.CompaniaCrea.Nombre);
 
             SqlParameter retorno = new SqlParameter("@Retorno", SqlDbType.Int);
             retorno.Direction = ParameterDirection.ReturnValue;

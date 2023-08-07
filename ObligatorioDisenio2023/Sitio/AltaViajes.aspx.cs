@@ -72,8 +72,10 @@ public partial class AltaViajes : System.Web.UI.Page
         try
         {
             Viaje unViaje = null;
+            Compania unaCompania = ((List<Compania>)Session["ListaCompanias"])[ddlCompania.SelectedIndex];
+
             unViaje = new Viaje(0, Convert.ToDateTime(txtFechaPartida.Text), Convert.ToDateTime(txtFechaArribo.Text), Convert.ToInt32(txtPrecio.Text.Trim()), 
-                                    Convert.ToInt32(ddlAnden.SelectedValue), Convert.ToInt32(txtMaximo.Text.Trim()), ((List<Compania>)Session["ListaCompanias"])[ddlCompania.SelectedIndex],
+                                    Convert.ToInt32(ddlAnden.SelectedValue), Convert.ToInt32(txtMaximo.Text.Trim()), unaCompania,
                                     (Empleado)Session["Empleado"], CargoListaParadas());
             FabricaLogica.GetLogicaViaje().AltaViaje(unViaje);
             Limpiar();
@@ -121,14 +123,19 @@ public partial class AltaViajes : System.Web.UI.Page
     protected void btnAgregarParada_Click(object sender, ImageClickEventArgs e)
     {
         // Verifico q se haya seleccionado alguna terminal
-        if (ddlTerminal.SelectedValue != "Por favor seleccione...")
+        if (ddlTerminal.SelectedValue == "Por favor seleccione...")
         {
-            lbParadas.Items.Add(ddlTerminal.SelectedValue);
-            ddlTerminal.SelectedIndex = -1;
-            lblError.Text = "Se agrego Correctamente la parada.";
+            lblError.Text = "Para agregar una terminal, primero tiene que seleccionar una.";
         }
         else
-            lblError.Text = "Para agregar una terminal, primero tiene que seleccionar una.";
+        {
+            if ()
+            {
+                lbParadas.Items.Add(ddlTerminal.SelectedValue);
+                ddlTerminal.SelectedIndex = -1;
+                lblError.Text = "Se agrego Correctamente la parada.";
+            }
+        }
 
     }
 
