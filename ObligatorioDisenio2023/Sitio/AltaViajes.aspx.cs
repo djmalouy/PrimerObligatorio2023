@@ -77,7 +77,7 @@ public partial class AltaViajes : System.Web.UI.Page
             DateTime fechaArribo;
             int precio;
 
-            if (lbParadas.Items.Count == 0)
+            if (((List<Parada>)Session["ListaParadas"]).Count() == 0)
             {
                 throw new Exception("Debe seleccionar al menos una parada al recorrido del viaje.");
             }
@@ -113,7 +113,7 @@ public partial class AltaViajes : System.Web.UI.Page
 
             unViaje = new Viaje(0, fechaPartida, fechaArribo, precio, 
                                     Convert.ToInt32(ddlAnden.SelectedValue), Convert.ToInt32(ddlMaximo.SelectedValue), unaCompania,
-                                    (Empleado)Session["Empleado"], CargoListaParadas());
+                                    (Empleado)Session["Empleado"], (List<Parada>)Session["ListaParadas"]);
             FabricaLogica.GetLogicaViaje().AltaViaje(unViaje);
             Limpiar();
 
@@ -125,28 +125,9 @@ public partial class AltaViajes : System.Web.UI.Page
         }
     }
 
-    private List<Parada> CargoListaParadas()
-    {
-        List<Parada> ListaParadas = new List<Parada>();
-        Terminal unaTerminal = null;
-        int nroParada = 1;
-        foreach (ListItem unaParada in lbParadas.Items)
-            try
-            {
-                unaTerminal = FabricaLogica.GetLogicaTerminal().BuscarActiva(unaParada.Text.Trim());
-            }
-            catch
-            {
-                throw new Exception("Ha ocurrido un error con la base de datos. Intentelo denuevo mas tarde.");
-            }
-            ListaParadas.Add(new Parada(nroParada, unaTerminal));
-            nroParada ++;
-
-        return ListaParadas;
-    }
-
     private void Limpiar()
     {
+        Session["ListaParadas"] = new List<Parada>();
         txtFechaPartida.Text = "";
         txtFechaArribo.Text = "";
         txtPrecio.Text = "";
@@ -154,32 +135,49 @@ public partial class AltaViajes : System.Web.UI.Page
         ddlMaximo.SelectedIndex = -1;
         ddlCompania.SelectedIndex = -1;
         ddlTerminal.SelectedIndex = -1;
-        lbParadas.Items.Clear();
+        gvParadas.DataBind();
     }
 
     protected void btnAgregarParada_Click(object sender, ImageClickEventArgs e)
     {
         lblError.Text = "";
+        List<Parada> listaParadas = (List<Parada>)Session["ListaParadas"];
+        int nroParada;
 
         // Verifico q se haya seleccionado alguna terminal
-        if (ddlTerminal.SelectedValue == "Por favor seleccione...")
+        if (ddlTerminal.SelectedIndex == 0)
         {
             lblError.Text = "Para agregar una terminal, primero tiene que seleccionar una.";
         }
         else
         {
-            foreach (ListItem item in lbParadas.Items)
+            if (listaParadas.Count > 0)
             {
-                if (item.Value == ddlTerminal.SelectedValue)
+                foreach (Parada P in listaParadas)
                 {
-                    lblError.Text = "ERROR: La parada seleccionada ya esta marcada como parte del recorrido. No se agrega";
-                    return;
+                    if (P.TerminalParada.CodTerminal == ddlTerminal.SelectedValue)
+                    {
+                        lblError.Text = "ERROR: La parada seleccionada ya esta marcada como parte del recorrido. No se agrega";
+                        return;
+                    }
                 }
+                //Si listaParadas != null asigno número de parada real
+                nroParada = listaParadas.Count + 1;
             }
-            
+            else
+            {
+                //Si listaParadas == null asigno número parada 1, inicial
+                nroParada = 1;
+            }
+            Terminal unaTerminal = ((List<Terminal>)Session["ListaTerminales"])[ddlTerminal.SelectedIndex];
+            Parada unaP = new Parada(nroParada, unaTerminal);
+
             // Si llego hasta aca, agrega la parada porque no esta en la lista
-            lbParadas.Items.Add(ddlTerminal.SelectedValue);
+            listaParadas.Add(unaP);
+            gvParadas.DataSource = listaParadas; 
+            gvParadas.DataBind();
             ddlTerminal.SelectedIndex = -1;
+            Session["ListaParadas"] = listaParadas;
         }
 
     }
@@ -189,15 +187,30 @@ public partial class AltaViajes : System.Web.UI.Page
         Limpiar();
     }
 
-    protected void btnQuitarParada_Click(object sender, ImageClickEventArgs e)
+    protected void gvParadas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
     {
-        // Verifico que se haya seleccionado una parada
-        if (lbParadas.SelectedIndex >= 0)
+        List<Parada> listaParadas = (List<Parada>)Session["ListaParadas"];
+        bool bandera = false;
+        //Utilizamos una variable bandera para no estar actualizando constantemente si se eliminó la última parada de la grilla.
+        if (gvParadas.SelectedIndex != listaParadas.Count - 1)
         {
-            lbParadas.Items.RemoveAt(lbParadas.SelectedIndex);
-            lblError.Text = "Se eliminó correctamente la parada del recorrido.";
+            bandera = true;
         }
-        else
-            lblError.Text = "Debe seleccionar qué parada desea eliminar.";
+        //Elimino la parada del listado de la session
+        //El SelectedIndex es igual a la posición de la parada en la lista
+        listaParadas.RemoveAt(gvParadas.SelectedIndex);
+
+        //Actualizo número de parada para que no me queden dispares.
+        if (bandera)
+        {
+            for(int i = 0; i < listaParadas.Count; i++)
+            {
+                listaParadas[i].NroParada = i + 1;
+            }
+        }
+
+        Session["ListaParadas"] = listaParadas;
+        gvParadas.DataSource = listaParadas;
+        gvParadas.DataBind();
     }
 }

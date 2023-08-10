@@ -1,0 +1,5 @@
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\bin\Release\EntidadesCompartidas.dll
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\bin\Release\EntidadesCompartidas.pdb
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\obj\Release\EntidadesCompartidas.csprojResolveAssemblyReference.cache
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\obj\Release\EntidadesCompartidas.dll
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\EntidadesCompartidas\obj\Release\EntidadesCompartidas.pdb

@@ -14,6 +14,8 @@ public partial class ListadoDeViajes : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            Limpiar();
+
             try
             {
                 List<Viaje> listaViajes = new List<Viaje>();
@@ -75,12 +77,20 @@ public partial class ListadoDeViajes : System.Web.UI.Page
         lblError.Text = "";
         GVListadoViajes.DataSource = Session["ListaViajes"];
         GVListadoViajes.DataBind();
+        Session["ListaFiltrada"] = null;
     }
 
     protected void GVListadoViajes_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
         GVListadoViajes.PageIndex = e.NewPageIndex;
-        GVListadoViajes.DataSource = Session["ListaViajes"];
+        if (Session["ListaFiltrada"] != null)
+        {
+            GVListadoViajes.DataSource = Session["ListaFiltrada"];
+        }
+        else
+        {
+            GVListadoViajes.DataSource = Session["ListaViajes"];
+        }
         GVListadoViajes.DataBind();
     }
 
@@ -133,6 +143,7 @@ public partial class ListadoDeViajes : System.Web.UI.Page
                                 ).ToList();
             }
 
+            Session["ListaFiltrada"] = ListaTotal;
             GVListadoViajes.DataSource = ListaTotal;
             GVListadoViajes.DataBind();
         }

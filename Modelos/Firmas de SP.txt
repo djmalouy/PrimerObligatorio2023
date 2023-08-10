@@ -1,0 +1,50 @@
+-- Empleado --
+BuscarEmpleado @NombUsuario varchar(8) 
+
+AltaEmpleado @NombUsuario varchar(8), @Contrasenia varchar(6), @NombCompleto varchar(50) 
+
+LogueoEmpleado @NombUsuario varchar(8), @Contrasenia varchar(6) 
+
+-- Compania --
+BuscarCompania @Nombre varchar(30) 
+
+AltaCompania @Nombre varchar(30), @Direccion varchar(50), @Telefono varchar(20) 
+
+ListarCompanias 
+
+-- Viajes --
+AltaViaje @Precio int, @Anden int, @MaximoPermitido int, @FechaYHoraPartida datetime, @FechaYHoraArribo datetime, @NomUsuEmp varchar(8), @Compania varchar(30)
+
+ViajesSinPartir  
+
+ViajesDelMes   
+
+-- Recorre --
+AgregarParada @CodViaje int, @CodTerminal varchar(6), @Parada int
+
+ListarRecorridoDeUnViaje @CodViaje int 
+
+-- Terminales --
+BuscarTerminalNacional @CodTerminal varchar(6) 
+
+BuscarTerminalNacionalActiva @CodTerminal varchar(6) 
+
+BuscarTerminalInternacional @CodTerminal varchar(6) 
+
+BuscarTerminalInternacionalActiva @CodTerminal varchar(6) 
+
+AltaTerminalNacional @CodTerminal varchar(6), @Ciudad varchar(40), @Taxi bit
+
+ModificarTerminalNacional @CodTerminal varchar(6), @Ciudad varchar(40), @Taxi bit
+
+AltaTerminalInternacional @CodTerminal varchar(6), @Ciudad varchar(40), @Pais varchar(10)
+
+ModificarTerminalInternacional @CodTerminal varchar(6), @Ciudad varchar(40), @Pais varchar(10)
+
+BajaTerminal @CodTerminal varchar(6) 
+
+ListarTerminalesNacionales
+
+ListarTerminalesInternacionales
+
+ListadoTerminalesDeUnViaje @CodViaje int

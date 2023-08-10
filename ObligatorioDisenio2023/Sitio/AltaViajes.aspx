@@ -28,6 +28,17 @@
         .auto-style9 {
             color: #FF0000;
         }
+        .auto-style10 {
+            height: 23px;
+            width: 446px;
+        }
+        .auto-style11 {
+            height: 26px;
+            width: 446px;
+        }
+        .auto-style12 {
+            width: 446px;
+        }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -39,7 +50,7 @@
         </tr>
         <tr>
             <td class="auto-style6"><strong>Fecha y Hora de Partida:</strong> </td>
-            <td class="auto-style4">
+            <td class="auto-style10">
                 <asp:TextBox ID="txtFechaPartida" runat="server" TextMode="DateTime"></asp:TextBox>
             </td>
             <td class="auto-style4">&nbsp;</td>
@@ -47,7 +58,7 @@
         </tr>
         <tr>
             <td class="auto-style8"><strong>Fecha y Hora de Arribo:</strong></td>
-            <td class="auto-style5">
+            <td class="auto-style11">
                 <asp:TextBox ID="txtFechaArribo" runat="server" TextMode="DateTime"></asp:TextBox>
             </td>
             <td class="auto-style5"></td>
@@ -55,7 +66,7 @@
         </tr>
         <tr>
             <td class="auto-style7"><strong>Precio: </strong> </td>
-            <td>
+            <td class="auto-style12">
                 <asp:TextBox ID="txtPrecio" runat="server" TextMode="Number"></asp:TextBox>
             </td>
             <td>&nbsp;</td>
@@ -63,7 +74,7 @@
         </tr>
         <tr>
             <td class="auto-style8"><strong>Anden: </strong> </td>
-            <td class="auto-style5">
+            <td class="auto-style11">
                 <asp:DropDownList ID="ddlAnden" runat="server">
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
@@ -107,7 +118,7 @@
         </tr>
         <tr>
             <td class="auto-style7"><strong>Máximo permitido:</strong></td>
-            <td>
+            <td class="auto-style12">
                 <asp:DropDownList ID="ddlMaximo" runat="server">
                     <asp:ListItem>1</asp:ListItem>
                     <asp:ListItem>2</asp:ListItem>
@@ -166,7 +177,7 @@
         </tr>
         <tr>
             <td class="auto-style7"><strong>Compañía: </strong> </td>
-            <td>
+            <td class="auto-style12">
                 <asp:DropDownList ID="ddlCompania" runat="server">
                 </asp:DropDownList>
             </td>
@@ -175,20 +186,25 @@
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>
+            <td class="auto-style12">
                 <asp:DropDownList ID="ddlTerminal" runat="server">
                 </asp:DropDownList>
 &nbsp;&nbsp;
                 <asp:ImageButton ID="btnAgregarParada" runat="server" Height="40px" ImageUrl="~/Images/AgregarParada.png" OnClick="btnAgregarParada_Click" />
             </td>
             <td colspan="2" rowspan="2">
-                <asp:ListBox ID="lbParadas" runat="server" Height="117px" Width="310px"></asp:ListBox>
-                <asp:ImageButton ID="btnQuitarParada" runat="server" Height="40px" ImageUrl="~/Images/QuitarParada.png" OnClick="btnQuitarParada_Click" />
+                <asp:GridView ID="gvParadas" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanging="gvParadas_SelectedIndexChanging">
+                    <Columns>
+                        <asp:BoundField DataField="NroParada" HeaderText="Parada"></asp:BoundField>
+                        <asp:BoundField DataField="TerminalParada.Ciudad" HeaderText="Ciudad" />
+                        <asp:CommandField SelectText="Quitar Parada" ShowSelectButton="True" />
+                    </Columns>
+                </asp:GridView>
             </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="auto-style12">&nbsp;</td>
         </tr>
         <tr>
             <td class="auto-style3" colspan="4">

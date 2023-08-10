@@ -1,0 +1,9 @@
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\bin\Release\Logica.dll
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\bin\Release\Logica.pdb
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\bin\Release\EntidadesCompartidas.dll
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\bin\Release\Persistencia.dll
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\bin\Release\EntidadesCompartidas.pdb
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\bin\Release\Persistencia.pdb
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\obj\Release\Logica.csprojResolveAssemblyReference.cache
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\obj\Release\Logica.dll
+C:\Users\USUARIO\Desktop\RepositorioGIT\PrimerObligatorio2023\ObligatorioDisenio2023\Logica\obj\Release\Logica.pdb
