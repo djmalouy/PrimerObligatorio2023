@@ -36,7 +36,7 @@ public partial class AltaViajes : System.Web.UI.Page
                     Session["ListaTerminales"] = listaTerminales;
                     ddlTerminal.DataSource = Session["ListaTerminales"];
                     ddlTerminal.DataTextField = "Ciudad"; //Lo que muestra
-                    ddlTerminal.DataValueField = "CodTerminal";
+                    ddlTerminal.DataValueField = "CodTerminal"; //Lo que muestra
                     ddlTerminal.DataBind();
                     ddlTerminal.Items.Insert(0, new ListItem("Por favor seleccione...", "Por favor seleccione..."));
 
@@ -140,46 +140,53 @@ public partial class AltaViajes : System.Web.UI.Page
 
     protected void btnAgregarParada_Click(object sender, ImageClickEventArgs e)
     {
-        lblError.Text = "";
-        List<Parada> listaParadas = (List<Parada>)Session["ListaParadas"];
-        int nroParada;
+        try
+        {
+            lblError.Text = "";
+            List<Parada> listaParadas = (List<Parada>)Session["ListaParadas"];
+            int nroParada;
 
-        // Verifico q se haya seleccionado alguna terminal
-        if (ddlTerminal.SelectedIndex == 0)
-        {
-            lblError.Text = "Para agregar una terminal, primero tiene que seleccionar una.";
-        }
-        else
-        {
-            if (listaParadas.Count > 0)
+            // Verifico q se haya seleccionado alguna terminal
+            if (ddlTerminal.SelectedIndex == 0)
             {
-                foreach (Parada P in listaParadas)
-                {
-                    if (P.TerminalParada.CodTerminal == ddlTerminal.SelectedValue)
-                    {
-                        lblError.Text = "ERROR: La parada seleccionada ya esta marcada como parte del recorrido. No se agrega";
-                        return;
-                    }
-                }
-                //Si listaParadas != null asigno número de parada real
-                nroParada = listaParadas.Count + 1;
+                lblError.Text = "Para agregar una terminal, primero tiene que seleccionar una.";
             }
             else
             {
-                //Si listaParadas == null asigno número parada 1, inicial
-                nroParada = 1;
+                if (listaParadas.Count > 0)
+                {
+                    foreach (Parada P in listaParadas)
+                    {
+                        if (P.TerminalParada.CodTerminal == ddlTerminal.SelectedValue)
+                        {
+                            lblError.Text = "ERROR: La parada seleccionada ya esta marcada como parte del recorrido. No se agrega";
+                            return;
+                        }
+                    }
+                    //Si listaParadas != null asigno número de parada real
+                    nroParada = listaParadas.Count + 1;
+                }
+                else
+                {
+                    //Si listaParadas == null asigno número parada 1, inicial
+                    nroParada = 1;
+                }
+                // Es selected index - 1 porque originalmente mis terminales comienzan en 0, pero le agregamos posteriormente el "Por favor seleccione..." en el 0
+                Terminal unaTerminal = ((List<Terminal>)Session["ListaTerminales"])[ddlTerminal.SelectedIndex-1];
+                Parada unaP = new Parada(nroParada, unaTerminal);
+
+                // Si llego hasta aca, agrega la parada porque no esta en la lista
+                listaParadas.Add(unaP);
+                gvParadas.DataSource = listaParadas;
+                gvParadas.DataBind();
+                ddlTerminal.SelectedIndex = -1;
+                Session["ListaParadas"] = listaParadas;
             }
-            Terminal unaTerminal = ((List<Terminal>)Session["ListaTerminales"])[ddlTerminal.SelectedIndex];
-            Parada unaP = new Parada(nroParada, unaTerminal);
-
-            // Si llego hasta aca, agrega la parada porque no esta en la lista
-            listaParadas.Add(unaP);
-            gvParadas.DataSource = listaParadas; 
-            gvParadas.DataBind();
-            ddlTerminal.SelectedIndex = -1;
-            Session["ListaParadas"] = listaParadas;
         }
-
+        catch (Exception ex)
+        {        
+            lblError.Text = ex.Message;
+        }
     }
 
     protected void btnLimpiar_Click(object sender, ImageClickEventArgs e)
@@ -197,8 +204,9 @@ public partial class AltaViajes : System.Web.UI.Page
             bandera = true;
         }
         //Elimino la parada del listado de la session
-        //El SelectedIndex es igual a la posición de la parada en la lista
-        listaParadas.RemoveAt(gvParadas.SelectedIndex);
+        //El SelectedIndex es igual a la posición de la parada en la lista (menos 1, porque posterior a armar la lista se agrega el Por favor seleccione)
+
+        listaParadas.RemoveAt(gvParadas.SelectedIndex-1);
 
         //Actualizo número de parada para que no me queden dispares.
         if (bandera)
