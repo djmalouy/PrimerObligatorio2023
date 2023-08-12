@@ -194,24 +194,25 @@ public partial class AltaViajes : System.Web.UI.Page
         Limpiar();
     }
 
-    protected void gvParadas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+    protected void gvParadas_SelectedIndexChanged(object sender, EventArgs e)
     {
         List<Parada> listaParadas = (List<Parada>)Session["ListaParadas"];
         bool bandera = false;
         //Utilizamos una variable bandera para no estar actualizando constantemente si se eliminó la última parada de la grilla.
-        if (gvParadas.SelectedIndex != listaParadas.Count - 1)
+        if (Convert.ToInt32(gvParadas.SelectedRow.Cells[0].Text) != listaParadas.Count)
         {
             bandera = true;
         }
         //Elimino la parada del listado de la session
         //El SelectedIndex es igual a la posición de la parada en la lista (menos 1, porque posterior a armar la lista se agrega el Por favor seleccione)
 
-        listaParadas.RemoveAt(gvParadas.SelectedIndex-1);
+        //listaParadas.RemoveAt(gvParadas.SelectedIndex);
+        listaParadas.RemoveAt((Convert.ToInt32(gvParadas.SelectedRow.Cells[0].Text) - 1));
 
         //Actualizo número de parada para que no me queden dispares.
         if (bandera)
         {
-            for(int i = 0; i < listaParadas.Count; i++)
+            for (int i = 0; i < listaParadas.Count; i++)
             {
                 listaParadas[i].NroParada = i + 1;
             }

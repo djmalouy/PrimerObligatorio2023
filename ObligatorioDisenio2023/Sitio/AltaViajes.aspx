@@ -17,27 +17,53 @@
         .auto-style6 {
             height: 23px;
             text-align: right;
+            width: 223px;
         }
         .auto-style7 {
             text-align: right;
+            width: 223px;
         }
         .auto-style8 {
             height: 26px;
             text-align: right;
+            width: 223px;
         }
         .auto-style9 {
             color: #FF0000;
         }
         .auto-style10 {
             height: 23px;
-            width: 446px;
+            width: 319px;
         }
         .auto-style11 {
             height: 26px;
-            width: 446px;
+            width: 319px;
         }
         .auto-style12 {
-            width: 446px;
+            width: 319px;
+        }
+        .auto-style13 {
+            width: 223px;
+        }
+        .auto-style14 {
+            text-align: right;
+            width: 223px;
+            height: 83px;
+        }
+        .auto-style15 {
+            width: 319px;
+            height: 83px;
+        }
+        .auto-style16 {
+            height: 23px;
+            width: 307px;
+        }
+        .auto-style17 {
+            height: 26px;
+            width: 307px;
+        }
+        .auto-style18 {
+            width: 307px;
         }
     </style>
 </asp:Content>
@@ -53,7 +79,7 @@
             <td class="auto-style10">
                 <asp:TextBox ID="txtFechaPartida" runat="server" TextMode="DateTime"></asp:TextBox>
             </td>
-            <td class="auto-style4">&nbsp;</td>
+            <td class="auto-style16">&nbsp;</td>
             <td class="auto-style4">&nbsp;</td>
         </tr>
         <tr>
@@ -61,7 +87,7 @@
             <td class="auto-style11">
                 <asp:TextBox ID="txtFechaArribo" runat="server" TextMode="DateTime"></asp:TextBox>
             </td>
-            <td class="auto-style5"></td>
+            <td class="auto-style17"></td>
             <td class="auto-style5"></td>
         </tr>
         <tr>
@@ -69,7 +95,7 @@
             <td class="auto-style12">
                 <asp:TextBox ID="txtPrecio" runat="server" TextMode="Number"></asp:TextBox>
             </td>
-            <td>&nbsp;</td>
+            <td class="auto-style18">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -113,11 +139,11 @@
                     <asp:ListItem>35</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td class="auto-style5"></td>
+            <td class="auto-style17"></td>
             <td class="auto-style5"></td>
         </tr>
         <tr>
-            <td class="auto-style7"><strong>Máximo permitido:</strong></td>
+            <td class="auto-style7"><strong>Máximo pasajeros permitido:</strong></td>
             <td class="auto-style12">
                 <asp:DropDownList ID="ddlMaximo" runat="server">
                     <asp:ListItem>1</asp:ListItem>
@@ -172,7 +198,7 @@
                     <asp:ListItem>50</asp:ListItem>
                 </asp:DropDownList>
             </td>
-            <td>&nbsp;</td>
+            <td class="auto-style18">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
@@ -181,19 +207,19 @@
                 <asp:DropDownList ID="ddlCompania" runat="server">
                 </asp:DropDownList>
             </td>
-            <td>&nbsp;</td>
+            <td class="auto-style18">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
-            <td class="auto-style12">
+            <td class="auto-style14"><strong>Seleccionar terminal:</strong></td>
+            <td class="auto-style15">
                 <asp:DropDownList ID="ddlTerminal" runat="server">
                 </asp:DropDownList>
 &nbsp;&nbsp;
-                <asp:ImageButton ID="btnAgregarParada" runat="server" Height="40px" ImageUrl="~/Images/AgregarParada.png" OnClick="btnAgregarParada_Click" />
+                <asp:ImageButton ID="btnAgregarParada" runat="server" Height="27px" ImageUrl="~/Images/AgregarParada.png" OnClick="btnAgregarParada_Click" />
             </td>
             <td colspan="2" rowspan="2">
-                <asp:GridView ID="gvParadas" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanging="gvParadas_SelectedIndexChanging">
+                <asp:GridView ID="gvParadas" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvParadas_SelectedIndexChanged">
                     <Columns>
                         <asp:BoundField DataField="NroParada" HeaderText="Parada"></asp:BoundField>
                         <asp:BoundField DataField="TerminalParada.Ciudad" HeaderText="Ciudad" />
@@ -203,7 +229,7 @@
             </td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td class="auto-style13">&nbsp;</td>
             <td class="auto-style12">&nbsp;</td>
         </tr>
         <tr>
