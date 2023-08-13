@@ -40,7 +40,17 @@ public partial class _Default : System.Web.UI.Page
         {
             string Usu = txtUsuario.Text.Trim();
             string Pass = txtPass.Text.Trim();
-            Empleado unEmp = FabricaLogica.GetLogicaEmpleado().Logueo(Usu, Pass);
+            Empleado unEmp = null;
+
+            try
+            {
+                unEmp = FabricaLogica.GetLogicaEmpleado().Logueo(Usu, Pass);
+            }
+            catch
+            {
+                throw new Exception("Ha ocurrido un error al comunicarse con la base de datos. Intentelo mas tarde.");
+            }
+            
 
             if (unEmp == null)
             {

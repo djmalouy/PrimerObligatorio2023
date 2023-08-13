@@ -27,7 +27,10 @@ public partial class AltaViajes : System.Web.UI.Page
                 }
                 catch
                 {
-                    lblError.Text = "Ha ocurrido un error al comunicarse con la base de datos - Intentelo denuevo más tarde.";
+                    btnAgregarParada.Enabled = false;
+                    btnAlta.Enabled = false;
+                    btnLimpiar.Enabled = false;
+                    throw new Exception ("Ha ocurrido un error al comunicarse con la base de datos - Intentelo denuevo más tarde.");
                 }
 
                 if (listaTerminales.Count() > 0 && listaCompanias.Count() > 0)
@@ -136,6 +139,7 @@ public partial class AltaViajes : System.Web.UI.Page
         ddlCompania.SelectedIndex = -1;
         ddlTerminal.SelectedIndex = -1;
         gvParadas.DataBind();
+        lblError.Text = "";
     }
 
     protected void btnAgregarParada_Click(object sender, ImageClickEventArgs e)
@@ -197,6 +201,8 @@ public partial class AltaViajes : System.Web.UI.Page
 
     protected void gvParadas_SelectedIndexChanged(object sender, EventArgs e)
     {
+        lblError.Text = "";
+
         List<Parada> listaParadas = (List<Parada>)Session["ListaParadas"];
         bool bandera = false;
         //Utilizamos una variable bandera para no estar actualizando constantemente si se eliminó la última parada de la grilla.

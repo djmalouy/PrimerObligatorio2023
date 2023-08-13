@@ -30,7 +30,7 @@ public partial class ListadoDeViajes : System.Web.UI.Page
                 }
                 catch
                 {
-                    lblError.Text = "Ha ocurrido un error al comunicarse con la base de datos - Intentelo denuevo más tarde.";
+                    throw new Exception("Ha ocurrido un error al comunicarse con la base de datos - Intentelo denuevo más tarde.");
                 }
                 // Obtengo todos los viajes sin filtrar
                 // No se controla que listaViajes sea nula porque la operacion ViajesDelMes retorna siempre una lista vacía en caso que no hayan viajes

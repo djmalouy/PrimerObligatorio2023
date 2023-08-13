@@ -78,13 +78,23 @@ public partial class ABMTerminalInternacional : System.Web.UI.Page
 
     protected void btnBuscar_Click(object sender, ImageClickEventArgs e)
     {
+        lblError.Text = "";
+
         try
         {
             string codTerminal = txtCodTerminal.Text.Trim();
             if (codTerminal.Length != 6 || !Regex.IsMatch(codTerminal, "[a-zA-Z]{6}"))
                 throw new Exception("El CodTerminal no cuenta con el formato correcto, deben ser 6 letras.");
+            Terminal unaTerminal = null;
 
-            Terminal unaTerminal = FabricaLogica.GetLogicaTerminal().BuscarActiva(codTerminal);
+            try
+            {
+                unaTerminal = FabricaLogica.GetLogicaTerminal().BuscarActiva(codTerminal);
+            }
+            catch 
+            {
+                throw new Exception("Ha ocurrido un error al comunicarse con la base de datos. Intentelo mas tarde.");
+            }
 
             if (unaTerminal == null)
             {
