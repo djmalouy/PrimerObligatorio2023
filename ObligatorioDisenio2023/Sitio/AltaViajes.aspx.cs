@@ -155,15 +155,16 @@ public partial class AltaViajes : System.Web.UI.Page
             {
                 if (listaParadas.Count > 0)
                 {
-                    foreach (Parada P in listaParadas)
+                    bool encontre = (from unaParada in listaParadas // Lista de paradas que tengo al momento
+                                     where unaParada.TerminalParada.CodTerminal == ddlTerminal.SelectedValue
+                                     select unaParada).Any(); // El any significa quy Si hay algo o no
+                    if (encontre)
                     {
-                        if (P.TerminalParada.CodTerminal == ddlTerminal.SelectedValue)
-                        {
-                            lblError.Text = "ERROR: La parada seleccionada ya esta marcada como parte del recorrido. No se agrega";
-                            return;
-                        }
+                        lblError.Text = "ERROR: La parada seleccionada ya esta marcada como parte del recorrido. No se agrega";
+                        return;
                     }
-                    //Si listaParadas != null asigno número de parada real
+
+                    //Si no encontré parada ya asignada antes, entonces asigno número de parada real
                     nroParada = listaParadas.Count + 1;
                 }
                 else
