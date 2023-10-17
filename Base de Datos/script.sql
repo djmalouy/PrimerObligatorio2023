@@ -107,6 +107,8 @@ INSERT INTO Companias (Nombre, Direccion, Telefono) VALUES ('Rumbo', 'Ruta 1 Km 
 INSERT INTO Companias (Nombre, Direccion, Telefono) VALUES ('Bagayinho', 'Pele o mais grande 1950', '00555121729840')
 INSERT INTO Companias (Nombre, Direccion, Telefono) VALUES ('HolaMundo', 'Uruguay 2421', '01928374')
 
+select * from Terminales
+
 -- Empleados --
 INSERT INTO Empleados (NombUsuario, Contrasenia, NombCompleto) VALUES ('LuSoro19', '123abc', 'Lucia Sorozabal')
 INSERT INTO Empleados (NombUsuario, Contrasenia, NombCompleto) VALUES ('Dj_Malo_', 'abc123', 'Andres Fariña')
@@ -205,6 +207,7 @@ INSERT INTO Nacionales (CodTerminal, Taxi) VALUES ('ALFAJO', 1)
 INSERT INTO Nacionales (CodTerminal, Taxi) VALUES ('ORIENT', 1)
 INSERT INTO Nacionales (CodTerminal, Taxi) VALUES ('ROCHUY', 1)
 
+select * from Recorren where CodViaje = 3
 -- Viajes --
 INSERT INTO Viajes (Precio, Anden, MaximoPermitido, FechaYHoraPartida, FechaYHoraArribo, NomUsuEmp, Compania) 
 	VALUES (350, 1, 33, CONVERT(datetime, '2023-08-13 08:00:00', 120), CONVERT(datetime, '2023-08-13 10:15:00', 120), 'DJ_Malo_', 'RapidBus')
